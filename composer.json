@@ -13,7 +13,8 @@
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "livewire/blaze": "^1.0",
-        "livewire/livewire": "^4.0"
+        "livewire/livewire": "^4.0",
+        "wendelladriel/slidewire": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -24,7 +25,9 @@
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
         "pestphp/pest": "^4.4",
-        "pestphp/pest-plugin-laravel": "^4.1"
+        "pestphp/pest-plugin-laravel": "^4.1",
+        "pestphp/pest-plugin-type-coverage": "^4.0",
+        "rector/rector": "^2.2"
     },
     "autoload": {
         "psr-4": {
@@ -57,19 +60,31 @@
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"php artisan inertia:start-ssr\" --names=server,queue,logs,ssr --kill-others"
         ],
         "lint": [
-            "pint --parallel"
+            "pint --parallel",
+            "rector"
         ],
-        "lint:check": [
-            "pint --parallel --test"
+        "test:lint": [
+            "pint --parallel --test",
+            "rector --dry-run"
+        ],
+        "test:types": [
+            "pest --type-coverage --min=100"
         ],
         "ci:check": [
             "Composer\\Config::disableProcessTimeout",
             "@test"
         ],
+        "test:unit": "pest --parallel --exclude-group=browser",
+        "test:browser": "pest --group=browser",
+        "test:browser:ci": "pest --group=browser --compact",
         "test": [
-            "@php artisan config:clear --ansi",
-            "@lint:check",
-            "@php artisan test"
+            "@test:lint",
+            "@test:types",
+            "@test:unit"
+        ],
+        "prepare": [
+            "@lint",
+            "@test"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
@@ -96,6 +111,15 @@
             "dont-discover": []
         }
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../slidewire",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
