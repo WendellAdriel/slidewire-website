@@ -1,0 +1,46 @@
+<?php
+
+declare(strict_types=1);
+
+it('renders the home route as a slidewire presentation', function (): void {
+    $response = test()->get('/');
+
+    $response->assertSuccessful()
+        ->assertSee('SlideWire')
+        ->assertSee('Create beautiful presentations powered by Livewire')
+        ->assertSee('src="/slidewire-logo.png"', false)
+        ->assertSee('href="/docs"', false)
+        ->assertSee('href="https://github.com/WendellAdriel/slidewire"', false)
+        ->assertSee('target="_blank"', false)
+        ->assertSee('rel="noopener noreferrer"', false);
+});
+
+it('keeps the home route name stable', function (): void {
+    expect(route(name: 'home', absolute: false))->toBe('/');
+});
+
+it('applies the expected deck controls and theme configuration', function (): void {
+    $response = test()->get('/');
+    $content = $response->getContent();
+
+    $response->assertSuccessful()
+        ->assertSee('aria-label="Slide controls"', false)
+        ->assertDontSee('role="progressbar"', false)
+        ->assertDontSee('Enter fullscreen');
+
+    expect($content)
+        ->toContain('slidewire-theme-neon')
+        ->toContain('data-theme="neon"')
+        ->toContain('Sora text-cyan-100 text-lg')
+        ->toContain('family=Sora:wght@400;500;600;700');
+});
+
+it('showcases the major slidewire features on the homepage deck', function (): void {
+    test()->get('/')
+        ->assertSuccessful()
+        ->assertSee('A presentation workflow that still feels like Laravel.')
+        ->assertSee('Move through decks in two dimensions.')
+        ->assertSee('Transitions and reveals stay focused on the story.')
+        ->assertSee('Build decks with Blade, markdown, code, and diagrams.')
+        ->assertSee('Theme presets make decks easy to brand.');
+});
