@@ -204,12 +204,13 @@ final readonly class DocsRepository
             return [$html, []];
         }
 
-        $headings = $this->hydrateHeadings($xpath);
         $this->rewriteLinks($xpath);
         $this->transformBlockquotes($xpath, $dom);
         $this->highlightCodeBlocks($xpath, $dom);
+        $this->removeDuplicateLeadContent($xpath, $markdown);
         $this->removeOverviewIntroList($xpath, $slug);
         $this->removeEmptyParagraphs($xpath);
+        $headings = $this->hydrateHeadings($xpath);
 
         return [$this->innerHtml($root), $headings];
     }
@@ -244,6 +245,53 @@ final readonly class DocsRepository
 
         $heading->parentNode?->removeChild($heading);
         $candidate->parentNode?->removeChild($candidate);
+    }
+
+    private function removeDuplicateLeadContent(DOMXPath $xpath, string $markdown): void
+    {
+        $description = $this->pageDescription($markdown);
+
+        if ($description === '') {
+            return;
+        }
+
+        $root = $xpath->query('//*[@id="docs-root"]')->item(0);
+
+        if (! $root instanceof DOMElement) {
+            return;
+        }
+
+        $children = [];
+
+        foreach ($root->childNodes as $child) {
+            if ($child instanceof DOMElement) {
+                $children[] = $child;
+            }
+        }
+
+        foreach ($children as $index => $child) {
+            if ($child->tagName !== 'p') {
+                continue;
+            }
+
+            $text = (string) Str::of($child->textContent)->squish();
+
+            if ($text !== $description) {
+                continue;
+            }
+
+            if ($index > 0) {
+                $previous = $children[$index - 1];
+
+                if ($previous->tagName === 'h2' && Str::lower(trim($previous->textContent)) === 'introduction') {
+                    $previous->parentNode?->removeChild($previous);
+                }
+            }
+
+            $child->parentNode?->removeChild($child);
+
+            return;
+        }
     }
 
     /**

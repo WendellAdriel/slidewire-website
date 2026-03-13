@@ -9,7 +9,16 @@ it('renders the docs index from docs readme', function (): void {
         ->assertSee('SlideWire is a Laravel package for building presentation decks with Livewire.')
         ->assertSee('href="/docs/installation"', false)
         ->assertSee('href="/docs/quickstart"', false)
-        ->assertSee('href="/docs/routing"', false);
+        ->assertSee('href="/docs/routing"', false)
+        ->assertDontSee('<h2 id="introduction">Introduction</h2>', false)
+        ->assertDontSee('href="#introduction"', false);
+});
+
+it('removes duplicated lead copy from individual docs pages', function (): void {
+    test()->get('/docs/installation')
+        ->assertSuccessful()
+        ->assertSee('SlideWire installs like a typical Laravel package.')
+        ->assertDontSee('<article class="docs-prose" data-docs-article><p>SlideWire installs like a typical Laravel package.', false);
 });
 
 it('renders an individual docs page from markdown', function (): void {
@@ -51,7 +60,7 @@ it('exposes branded docs chrome', function (): void {
 it('renders heading anchors and readme next navigation', function (): void {
     test()->get('/docs')
         ->assertSuccessful()
-        ->assertSee('id="introduction"', false)
+        ->assertSee('id="available-guides"', false)
         ->assertSee('href="/docs/installation"', false)
         ->assertSee('Next', false);
 });
