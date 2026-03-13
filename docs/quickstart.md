@@ -45,14 +45,14 @@ new class extends Component {
 <x-slidewire::deck theme="aurora" transition="fade">
     <x-slidewire::slide>
         <div class="mx-auto max-w-5xl space-y-6">
-            <flux:heading size="xl">{{ $headline }}</flux:heading>
+            <h1 class="text-4xl font-semibold tracking-tight">{{ $headline }}</h1>
 
             <x-slidewire::fragment :index="0">
-                <flux:text>Private beta is complete.</flux:text>
+                <p class="text-lg text-slate-200">Private beta is complete.</p>
             </x-slidewire::fragment>
 
             <x-slidewire::fragment :index="1">
-                <flux:text>Pilot customers are now live.</flux:text>
+                <p class="text-lg text-slate-200">Pilot customers are now live.</p>
             </x-slidewire::fragment>
         </div>
     </x-slidewire::slide>

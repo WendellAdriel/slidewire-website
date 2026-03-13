@@ -18,7 +18,7 @@ php artisan make:slidewire team/q1-kickoff --title="Q1 Kickoff"
 
 The generated file is written to the first configured presentation root and uses the package stub.
 
-That stub is a Livewire single-file component and includes Flux UI-based starter slides, so you can begin editing immediately.
+That stub is a Livewire single-file component with starter slides, so you can begin editing immediately.
 
 Command signature:
 

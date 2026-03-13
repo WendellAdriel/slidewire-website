@@ -16,7 +16,6 @@ SlideWire currently requires the same core stack validated by the package itself
 - PHP `^8.4`
 - Laravel `^12.0`
 - Livewire `^4.0`
-- Flux UI `^2.0`
 
 Code highlighting is powered by `phiki/phiki`, which is installed automatically as a package dependency.
 
@@ -64,7 +63,7 @@ By default, the file is created at:
 resources/views/pages/slides/demo/hello.blade.php
 ```
 
-The generated scaffold is a Livewire single-file component that already includes a deck, slides, Flux UI components, and a fragment.
+The generated scaffold is a Livewire single-file component that already includes a deck, slides, and a fragment so you can start editing immediately.
 
 <a name="register-a-route"></a>
 ## Register a route

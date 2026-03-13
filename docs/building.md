@@ -29,8 +29,8 @@ The simplest presentations can be plain Blade files:
 <x-slidewire::deck>
     <x-slidewire::slide class="bg-slate-900 text-white">
         <div class="mx-auto max-w-5xl space-y-6">
-            <flux:heading size="xl">Kickoff</flux:heading>
-            <flux:text>Welcome to SlideWire.</flux:text>
+            <h1 class="text-4xl font-semibold tracking-tight">Kickoff</h1>
+            <p class="text-lg text-slate-300">Welcome to SlideWire.</p>
         </div>
     </x-slidewire::slide>
 
@@ -79,8 +79,8 @@ new class extends Component {
 <x-slidewire::deck theme="black">
     <x-slidewire::slide>
         <div class="space-y-4">
-            <flux:heading size="xl">{{ $title }}</flux:heading>
-            <flux:text>{{ $subtitle }}</flux:text>
+            <h1 class="text-4xl font-semibold tracking-tight">{{ $title }}</h1>
+            <p class="text-lg text-slate-300">{{ $subtitle }}</p>
         </div>
     </x-slidewire::slide>
 </x-slidewire::deck>
