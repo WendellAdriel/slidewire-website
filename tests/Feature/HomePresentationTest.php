@@ -11,6 +11,7 @@ it('renders the home route as a slidewire presentation', function (): void {
         ->assertSee('src="/slidewire-logo.png"', false)
         ->assertSee('href="/docs"', false)
         ->assertSee('href="https://github.com/WendellAdriel/slidewire"', false)
+        ->assertSee('Tip: click anywhere or press Space to continue.')
         ->assertSee('target="_blank"', false)
         ->assertSee('rel="noopener noreferrer"', false);
 });
@@ -24,7 +25,7 @@ it('applies the expected deck controls and theme configuration', function (): vo
     $content = $response->getContent();
 
     $response->assertSuccessful()
-        ->assertSee('aria-label="Slide controls"', false)
+        ->assertDontSee('aria-label="Slide controls"', false)
         ->assertDontSee('role="progressbar"', false)
         ->assertDontSee('Enter fullscreen');
 

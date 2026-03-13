@@ -10,7 +10,7 @@ new class() extends Component
 <x-slidewire::deck
     theme="neon"
     transition="fade"
-    show-controls="true"
+    show-controls="false"
     show-progress="false"
     show-fullscreen-button="false"
 >
@@ -37,6 +37,10 @@ new class() extends Component
                     <a href="https://github.com/WendellAdriel/slidewire" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full border border-fuchsia-300/35 bg-fuchsia-300/10 px-6 py-3 text-sm font-semibold text-fuchsia-50 transition hover:border-fuchsia-200 hover:bg-fuchsia-300/20">
                         View on GitHub
                     </a>
+                </div>
+
+                <div class="text-sm text-cyan-100/80">
+                    Tip: click anywhere or press Space to continue.
                 </div>
             </div>
 
