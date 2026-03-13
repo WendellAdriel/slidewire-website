@@ -44,23 +44,22 @@ new class() extends Component
                 <div class="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-cyan-400/25 via-fuchsia-500/15 to-transparent blur-3xl"></div>
                 <div class="relative space-y-4 rounded-[2rem] border border-white/15 bg-slate-950/45 p-6 shadow-[0_0_60px_rgba(168,85,247,0.18)] backdrop-blur-xl sm:p-8">
                     <div class="flex items-center justify-between text-xs uppercase tracking-[0.25em] text-fuchsia-100/75">
-                        <span>Deck highlights</span>
-                        <span>#/slide/1</span>
+                        <span>Why teams pick SlideWire</span>
                     </div>
                     <div class="grid gap-4 sm:grid-cols-2">
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                            <p class="text-xs uppercase tracking-[0.25em] text-cyan-200/70">Navigation</p>
-                            <p class="mt-3 text-2xl font-semibold text-white">2D deck flow</p>
-                            <p class="mt-2 text-sm leading-6 text-cyan-100/80">Horizontal paths, vertical stacks, keyboard shortcuts, touch gestures, and hash links.</p>
+                            <p class="text-xs uppercase tracking-[0.25em] text-cyan-200/70">Authoring</p>
+                            <p class="mt-3 text-2xl font-semibold text-white">Blade-first decks</p>
+                            <p class="mt-2 text-sm leading-6 text-cyan-100/80">Build presentations in Laravel with slides, markdown, code, diagrams, and Tailwind layouts.</p>
                         </div>
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                            <p class="text-xs uppercase tracking-[0.25em] text-cyan-200/70">Authoring</p>
-                            <p class="mt-3 text-2xl font-semibold text-white">Blade native</p>
-                            <p class="mt-2 text-sm leading-6 text-cyan-100/80">Compose slides with components, markdown, code, diagrams, and Tailwind layouts.</p>
+                            <p class="text-xs uppercase tracking-[0.25em] text-cyan-200/70">Interactivity</p>
+                            <p class="mt-3 text-2xl font-semibold text-white">Livewire runtime</p>
+                            <p class="mt-2 text-sm leading-6 text-cyan-100/80">Keep state on the server while still getting polished controls, fragments, and reactive flows.</p>
                         </div>
                     </div>
                     <div class="rounded-2xl border border-fuchsia-300/20 bg-gradient-to-r from-fuchsia-400/10 via-white/5 to-cyan-400/10 p-4 text-sm leading-6 text-cyan-50/85">
-                        Neon theme, stronger typography, and directional controls turn the homepage into a product showcase instead of a plain splash screen.
+                        Themes, Google Fonts, image and video backgrounds, and motion primitives make it easy to turn a plain route into a launch-ready deck.
                     </div>
                 </div>
             </div>
@@ -68,7 +67,7 @@ new class() extends Component
     </x-slidewire::slide>
 
     <x-slidewire::slide>
-        <div class="mx-auto flex h-full w-full max-w-6xl flex-col justify-between gap-10 lg:flex-row lg:items-end">
+        <div class="mx-auto flex h-full w-full max-w-6xl flex-col justify-between gap-10">
             <div class="max-w-2xl space-y-6">
                 <p class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Why SlideWire</p>
                 <h2 class="text-4xl font-semibold text-white sm:text-5xl">A presentation workflow that still feels like Laravel.</h2>
@@ -77,7 +76,7 @@ new class() extends Component
                 </p>
             </div>
 
-            <div class="grid w-full max-w-3xl gap-4 md:grid-cols-3">
+            <div class="grid w-full gap-4 md:grid-cols-3">
                 <x-slidewire::fragment>
                     <div class="rounded-3xl border border-white/10 bg-white/6 p-5 backdrop-blur">
                         <p class="text-sm font-medium uppercase tracking-[0.2em] text-fuchsia-100/75">Full-page decks</p>
@@ -192,25 +191,77 @@ new class() extends Component
     </x-slidewire::slide>
 
     <x-slidewire::slide>
-        <div class="mx-auto grid h-full w-full max-w-6xl gap-8 lg:grid-cols-[1fr_1fr] lg:items-center">
-            <div class="space-y-6">
+        <div class="mx-auto grid h-full w-full max-w-6xl gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div class="space-y-6 rounded-[2rem] border border-white/10 bg-slate-950/65 p-7 shadow-[0_0_60px_rgba(15,23,42,0.45)] backdrop-blur-xl">
                 <p class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Customization</p>
-                <h2 class="text-4xl font-semibold text-white sm:text-5xl">Theme presets make decks easy to brand.</h2>
+                <h2 class="text-4xl font-semibold text-white sm:text-5xl">Brand decks with fonts, backgrounds, and richer visuals out of the box.</h2>
                 <p class="text-lg leading-8 text-cyan-100/90">
-                    Choose a preset like neon, swap typography, tune highlight themes, and shape each slide with gradients, overlays, and backgrounds that fit the message.
+                    SlideWire automatically loads configured Google Fonts and gives each deck room for gradients, overlays, theme-driven styling, and media-backed slides when you want extra visual storytelling.
+                </p>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+                    <div class="rounded-3xl border border-cyan-300/20 bg-cyan-300/10 p-5">
+                        <p class="text-sm uppercase tracking-[0.25em] text-cyan-100/75">Google Fonts</p>
+                        <p class="mt-3 text-3xl font-semibold text-white">Inter + JetBrains Mono</p>
+                        <p class="mt-2 text-sm leading-6 text-cyan-50/80">Configured fonts are injected automatically, so display and code typography feel polished with zero extra wiring.</p>
+                    </div>
+                    <div class="rounded-3xl border border-fuchsia-300/20 bg-fuchsia-300/10 p-5">
+                        <p class="text-sm uppercase tracking-[0.25em] text-fuchsia-100/75">Visual depth</p>
+                        <p class="mt-3 text-3xl font-semibold text-white">Media + overlays</p>
+                        <p class="mt-2 text-sm leading-6 text-fuchsia-50/80">Use image or video backgrounds when needed, then layer neon gradients and translucent panels on top.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4 rounded-[2rem] border border-white/10 bg-slate-950/55 p-6 backdrop-blur-xl">
+                <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+                    <p class="text-sm uppercase tracking-[0.25em] text-cyan-100/75">Google Fonts config</p>
+                    <x-slidewire::code language="blade" size="text-sm">
+<x-slidewire::deck theme="neon">
+    <x-slidewire::slide>
+        <h2>Styled with loaded fonts</h2>
+    </x-slidewire::slide>
+</x-slidewire::deck>
+                    </x-slidewire::code>
+                </div>
+                <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
+                    <p class="text-sm uppercase tracking-[0.25em] text-fuchsia-100/75">Media-ready slides</p>
+                    <x-slidewire::code language="blade" size="text-sm">
+<x-slidewire::slide background-image="/img/hero.jpg" />
+<x-slidewire::slide background-video="/video/demo.mp4" />
+                    </x-slidewire::code>
+                </div>
+                <div class="flex flex-wrap gap-3 text-sm text-cyan-100/80">
+                    <span class="rounded-full border border-white/10 px-3 py-1">Theme presets</span>
+                    <span class="rounded-full border border-white/10 px-3 py-1">Highlight themes</span>
+                    <span class="rounded-full border border-white/10 px-3 py-1">Image/Video backgrounds</span>
+                </div>
+            </div>
+        </div>
+    </x-slidewire::slide>
+
+    <x-slidewire::slide>
+        <div class="mx-auto flex h-full w-full max-w-5xl flex-col justify-center gap-8">
+            <div class="max-w-3xl space-y-5 rounded-[2rem] border border-white/10 bg-slate-950/60 p-8 backdrop-blur-xl">
+                <p class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">AI ready</p>
+                <h2 class="text-4xl font-semibold text-white sm:text-5xl">SlideWire ships with a Boost AI skill for beautiful deck creation.</h2>
+                <p class="text-lg leading-8 text-cyan-100/90">
+                    AI agents can use the bundled SlideWire Boost skill to scaffold decks, choose the right components, structure horizontal and vertical flow, and refine visuals without guessing at package conventions.
                 </p>
             </div>
 
-            <div class="grid gap-4 sm:grid-cols-2">
-                <div class="rounded-3xl border border-cyan-300/20 bg-gradient-to-br from-cyan-400/15 to-cyan-950/50 p-5">
-                    <p class="text-sm uppercase tracking-[0.25em] text-cyan-100/75">Typography</p>
-                    <p class="mt-3 text-3xl font-semibold text-white">Sora</p>
-                    <p class="mt-2 text-sm leading-6 text-cyan-50/80">Sharper display styling for presentation-sized headlines and readable body copy.</p>
+            <div class="grid gap-4 md:grid-cols-3">
+                <div class="rounded-3xl border border-white/10 bg-white/8 p-5 backdrop-blur">
+                    <p class="text-sm uppercase tracking-[0.25em] text-fuchsia-100/75">Workflow aware</p>
+                    <p class="mt-3 text-base leading-7 text-cyan-50/85">Steers agents toward `make:slidewire`, single-file decks, and route macro registration.</p>
                 </div>
-                <div class="rounded-3xl border border-fuchsia-300/20 bg-gradient-to-br from-fuchsia-400/15 to-fuchsia-950/50 p-5">
-                    <p class="text-sm uppercase tracking-[0.25em] text-fuchsia-100/75">Theme preset</p>
-                    <p class="mt-3 text-3xl font-semibold text-white">Neon</p>
-                    <p class="mt-2 text-sm leading-6 text-fuchsia-50/80">Glowing gradients, high contrast, and embedded-homepage energy.</p>
+                <div class="rounded-3xl border border-white/10 bg-white/8 p-5 backdrop-blur">
+                    <p class="text-sm uppercase tracking-[0.25em] text-fuchsia-100/75">Component smart</p>
+                    <p class="mt-3 text-base leading-7 text-cyan-50/85">Helps agents reach for slides, fragments, markdown, code, and diagrams at the right time.</p>
+                </div>
+                <div class="rounded-3xl border border-white/10 bg-white/8 p-5 backdrop-blur">
+                    <p class="text-sm uppercase tracking-[0.25em] text-fuchsia-100/75">Design guided</p>
+                    <p class="mt-3 text-base leading-7 text-cyan-50/85">Encourages strong themes, deliberate motion, readable spacing, and presenter-friendly pacing.</p>
                 </div>
             </div>
         </div>
@@ -220,9 +271,6 @@ new class() extends Component
         <div class="mx-auto flex h-full w-full max-w-5xl flex-col items-center justify-center gap-8 text-center">
             <p class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Get started</p>
             <h2 class="text-4xl font-semibold text-white sm:text-5xl">Explore the package, then build your own deck.</h2>
-            <p class="max-w-3xl text-lg leading-8 text-cyan-100/90">
-                Browse the docs for authoring patterns, then head to GitHub for installation, source, and the latest package updates.
-            </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="/docs" class="inline-flex items-center justify-center rounded-full border border-cyan-300/40 bg-cyan-300/15 px-6 py-3 text-sm font-semibold text-cyan-50 transition hover:border-cyan-200 hover:bg-cyan-300/25">
                     Explore the docs

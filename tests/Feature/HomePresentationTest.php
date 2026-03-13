@@ -42,5 +42,6 @@ it('showcases the major slidewire features on the homepage deck', function (): v
         ->assertSee('Move through decks in two dimensions.')
         ->assertSee('Transitions and reveals stay focused on the story.')
         ->assertSee('Build decks with Blade, markdown, code, and diagrams.')
-        ->assertSee('Theme presets make decks easy to brand.');
+        ->assertSee('Brand decks with fonts, backgrounds, and richer visuals out of the box.')
+        ->assertSee('SlideWire ships with a Boost AI skill for beautiful deck creation.');
 });
