@@ -18,7 +18,7 @@ it('renders an individual docs page from markdown', function (): void {
         ->assertSee('Installation')
         ->assertSee('SlideWire installs like a typical Laravel package.')
         ->assertSee('SlideWire registers its service provider automatically')
-        ->assertSee('catppuccin-mocha', false)
+        ->assertSee('synthwave-84', false)
         ->assertDontSee('line-number', false);
 });
 
@@ -26,7 +26,7 @@ it('rewrites internal markdown links to docs routes', function (): void {
     test()->get('/docs/installation')
         ->assertSuccessful()
         ->assertSee('href="/docs/quickstart"', false)
-        ->assertSee('href="/docs/authoring"', false)
+        ->assertSee('href="/docs/building"', false)
         ->assertDontSee('href="./quickstart.md"', false);
 });
 

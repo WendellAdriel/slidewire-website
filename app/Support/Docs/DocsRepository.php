@@ -444,7 +444,7 @@ final readonly class DocsRepository
                 $highlighted = (string) Phiki::codeToHtml(
                     $source,
                     $grammar,
-                    Theme::CatppuccinMocha,
+                    Theme::Synthwave_84,
                 );
             } catch (Throwable) {
                 continue;

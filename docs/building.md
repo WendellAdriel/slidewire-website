@@ -1,4 +1,4 @@
-# Authoring presentations
+# Presentation workflow
 
 - [Presentation structure](#presentation-structure)
 - [Blade presentations](#blade-presentations)
@@ -7,12 +7,12 @@
 - [Vertical stacks](#vertical-stacks)
 - [Render data](#render-data)
 
-SlideWire presentations are intentionally simple to author: one file, one deck, and as many slides as you need.
+SlideWire keeps the presentation workflow intentionally simple: one file, one deck, and as many slides as you need.
 
 <a name="presentation-structure"></a>
 ## Presentation structure
 
-Each presentation is authored in a single Blade file and typically contains one `<x-slidewire::deck>` with one or more `<x-slidewire::slide>` elements.
+Each deck lives in a single Blade file and typically contains one `<x-slidewire::deck>` with one or more `<x-slidewire::slide>` elements.
 
 The default file convention is:
 

@@ -79,4 +79,4 @@ Route::slidewire('/slides/hello', 'demo/hello');
 
 Then open `/slides/hello` in your browser.
 
-From there, you may continue with the [quickstart](./quickstart.md) or jump to [authoring presentations](./authoring.md).
+From there, you may continue with the [quickstart](./quickstart.md) or jump to the [presentation workflow](./building.md).

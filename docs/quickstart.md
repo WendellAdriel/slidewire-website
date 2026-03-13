@@ -1,7 +1,7 @@
 # Quickstart
 
 - [Create a presentation](#create-a-presentation)
-- [Author your slides](#author-your-slides)
+- [Build your slides](#build-your-slides)
 - [Register the presentation route](#register-the-presentation-route)
 - [Present the deck](#present-the-deck)
 
@@ -18,8 +18,8 @@ php artisan make:slidewire demo/product-launch --title="Product Launch"
 
 This creates a Blade file in your first configured presentation root.
 
-<a name="author-your-slides"></a>
-## Author your slides
+<a name="build-your-slides"></a>
+## Build your slides
 
 You may keep a presentation as a simple Blade file, or use the generated Livewire single-file component format.
 

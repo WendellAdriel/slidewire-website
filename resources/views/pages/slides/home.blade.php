@@ -26,7 +26,7 @@ new class() extends Component
                     <img src="/slidewire-logo.png" alt="SlideWire logo" class="h-20 w-auto drop-shadow-[0_0_30px_rgba(217,70,239,0.45)] sm:h-24">
                     <h1 class="text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">SlideWire</h1>
                     <p class="max-w-2xl text-lg leading-8 text-cyan-100/90 sm:text-xl">
-                        Create beautiful presentations powered by Livewire, with polished navigation, expressive motion, and Blade-first authoring.
+                        Create beautiful presentations powered by Livewire, with polished navigation, expressive motion, and a Blade-first workflow.
                     </p>
                 </div>
 
@@ -48,7 +48,7 @@ new class() extends Component
                     </div>
                     <div class="grid gap-4 sm:grid-cols-2">
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                            <p class="text-xs uppercase tracking-[0.25em] text-cyan-200/70">Authoring</p>
+                            <p class="text-xs uppercase tracking-[0.25em] text-cyan-200/70">Workflow</p>
                             <p class="mt-3 text-2xl font-semibold text-white">Blade-first decks</p>
                             <p class="mt-2 text-sm leading-6 text-cyan-100/80">Build presentations in Laravel with slides, markdown, code, diagrams, and Tailwind layouts.</p>
                         </div>
@@ -86,7 +86,7 @@ new class() extends Component
                 <x-slidewire::fragment :index="1">
                     <div class="rounded-3xl border border-white/10 bg-white/6 p-5 backdrop-blur">
                         <p class="text-sm font-medium uppercase tracking-[0.2em] text-fuchsia-100/75">Reactive runtime</p>
-                        <p class="mt-3 text-base leading-7 text-cyan-50/85">Use Livewire-driven state while keeping authoring straightforward.</p>
+                        <p class="mt-3 text-base leading-7 text-cyan-50/85">Use Livewire-driven state while keeping the workflow straightforward.</p>
                     </div>
                 </x-slidewire::fragment>
                 <x-slidewire::fragment :index="2">
@@ -164,10 +164,10 @@ new class() extends Component
     <x-slidewire::slide>
         <div class="mx-auto grid h-full w-full max-w-6xl gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div class="space-y-6">
-                <p class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Authoring</p>
+                <p class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Workflow</p>
                 <h2 class="text-4xl font-semibold text-white sm:text-5xl">Build decks with Blade, markdown, code, and diagrams.</h2>
                 <p class="text-lg leading-8 text-cyan-100/90">
-                    Author presentations in a single Blade file, mix in Tailwind composition, and reach for purpose-built SlideWire components when content needs code samples or visual structure.
+                    Build decks in a single Blade file, mix in Tailwind composition, and reach for purpose-built SlideWire components when content needs code samples or visual structure.
                 </p>
             </div>
 
@@ -176,7 +176,7 @@ new class() extends Component
 <x-slidewire::deck theme="neon">
     <x-slidewire::slide>
         <x-slidewire::markdown>
-## Blade-first authoring
+## Blade-first workflow
         </x-slidewire::markdown>
     </x-slidewire::slide>
 </x-slidewire::deck>

@@ -117,7 +117,7 @@
 
                         <div class="space-y-3">
                             <flux:heading size="xl" level="1" class="text-white">{{ $page->title }}</flux:heading>
-                            <flux:text class="max-w-3xl text-sm leading-7 text-slate-300 sm:text-base">{{ $page->description }}</flux:text>
+                            <flux:text class="max-w-3xl text-sm leading-7 text-slate-100/88 sm:text-base">{{ $page->description }}</flux:text>
                         </div>
                     </div>
 
