@@ -44,7 +44,7 @@ new class() extends Component
                 <div class="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-cyan-400/25 via-fuchsia-500/15 to-transparent blur-3xl"></div>
                 <div class="relative space-y-4 rounded-[2rem] border border-white/15 bg-slate-950/45 p-6 shadow-[0_0_60px_rgba(168,85,247,0.18)] backdrop-blur-xl sm:p-8">
                     <div class="flex items-center justify-between text-xs uppercase tracking-[0.25em] text-fuchsia-100/75">
-                        <span>Why teams pick SlideWire</span>
+                        <span>Why to pick SlideWire</span>
                     </div>
                     <div class="grid gap-4 sm:grid-cols-2">
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
@@ -72,7 +72,7 @@ new class() extends Component
                 <p class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Why SlideWire</p>
                 <h2 class="text-4xl font-semibold text-white sm:text-5xl">A presentation workflow that still feels like Laravel.</h2>
                 <p class="text-lg leading-8 text-cyan-100/90">
-                    SlideWire keeps deck state on the server with Livewire, so teams can build interactive presentations without leaving the Laravel toolset they already use every day.
+                    SlideWire keeps deck state on the server with Livewire, so you can build interactive presentations without leaving the Laravel toolset they already use every day.
                 </p>
             </div>
 
@@ -191,29 +191,36 @@ new class() extends Component
     </x-slidewire::slide>
 
     <x-slidewire::slide>
-        <div class="mx-auto grid h-full w-full max-w-6xl gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-            <div class="space-y-6 rounded-[2rem] border border-white/10 bg-slate-950/65 p-7 shadow-[0_0_60px_rgba(15,23,42,0.45)] backdrop-blur-xl">
+        <div class="mx-auto grid h-full w-full max-w-6xl gap-5 sm:gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div class="space-y-4 rounded-[2rem] border border-white/10 bg-slate-950/65 p-5 shadow-[0_0_60px_rgba(15,23,42,0.45)] backdrop-blur-xl sm:space-y-6 sm:p-7">
                 <p class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Customization</p>
-                <h2 class="text-4xl font-semibold text-white sm:text-5xl">Brand decks with fonts, backgrounds, and richer visuals out of the box.</h2>
-                <p class="text-lg leading-8 text-cyan-100/90">
+                <h2 class="text-3xl font-semibold text-white sm:text-4xl lg:text-5xl">Brand decks with fonts, backgrounds, and richer visuals out of the box.</h2>
+                <p class="text-base leading-7 text-cyan-100/90 sm:text-lg sm:leading-8">
                     SlideWire automatically loads configured Google Fonts and gives each deck room for gradients, overlays, theme-driven styling, and media-backed slides when you want extra visual storytelling.
                 </p>
 
                 <div class="grid gap-4 sm:grid-cols-2">
-                    <div class="rounded-3xl border border-cyan-300/20 bg-cyan-300/10 p-5">
+                    <div class="rounded-3xl border border-cyan-300/20 bg-cyan-300/10 p-4 sm:p-5">
                         <p class="text-sm uppercase tracking-[0.25em] text-cyan-100/75">Google Fonts</p>
-                        <p class="mt-3 text-3xl font-semibold text-white">Inter + JetBrains Mono</p>
+                        <p class="mt-3 text-2xl font-semibold text-white sm:text-3xl">Inter + JetBrains Mono</p>
                         <p class="mt-2 text-sm leading-6 text-cyan-50/80">Configured fonts are injected automatically, so display and code typography feel polished with zero extra wiring.</p>
                     </div>
-                    <div class="rounded-3xl border border-fuchsia-300/20 bg-fuchsia-300/10 p-5">
+                    <div class="rounded-3xl border border-fuchsia-300/20 bg-fuchsia-300/10 p-4 sm:p-5">
                         <p class="text-sm uppercase tracking-[0.25em] text-fuchsia-100/75">Visual depth</p>
-                        <p class="mt-3 text-3xl font-semibold text-white">Media + overlays</p>
+                        <p class="mt-3 text-2xl font-semibold text-white sm:text-3xl">Media + overlays</p>
                         <p class="mt-2 text-sm leading-6 text-fuchsia-50/80">Use image or video backgrounds when needed, then layer neon gradients and translucent panels on top.</p>
                     </div>
                 </div>
+
+                <div class="flex flex-wrap gap-2 text-xs text-cyan-100/80 sm:hidden">
+                    <span class="rounded-full border border-white/10 px-3 py-1">Google Fonts</span>
+                    <span class="rounded-full border border-white/10 px-3 py-1">Theme presets</span>
+                    <span class="rounded-full border border-white/10 px-3 py-1">Highlight themes</span>
+                    <span class="rounded-full border border-white/10 px-3 py-1">Image/Video backgrounds</span>
+                </div>
             </div>
 
-            <div class="space-y-4 rounded-[2rem] border border-white/10 bg-slate-950/55 p-6 backdrop-blur-xl">
+            <div class="hidden space-y-4 rounded-[2rem] border border-white/10 bg-slate-950/55 p-6 backdrop-blur-xl sm:block">
                 <div class="rounded-3xl border border-white/10 bg-white/5 p-5">
                     <p class="text-sm uppercase tracking-[0.25em] text-cyan-100/75">Google Fonts config</p>
                     <x-slidewire::code language="blade" size="text-sm">

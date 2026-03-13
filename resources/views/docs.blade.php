@@ -3,7 +3,18 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Docs - {{ config('app.name') }}</title>
+        <title>Docs - SlideWire</title>
+        <meta name="description" content="Documentation and presentation examples for SlideWire.">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Docs - SlideWire">
+        <meta property="og:description" content="Documentation and presentation examples for SlideWire.">
+        <meta property="og:url" content="{{ request()->fullUrl() }}">
+        <meta property="og:image" content="{{ url('/cover.png') }}">
+        <meta property="og:image:alt" content="SlideWire cover image">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Docs - SlideWire">
+        <meta name="twitter:description" content="Documentation and presentation examples for SlideWire.">
+        <meta name="twitter:image" content="{{ url('/cover.png') }}">
 
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @vite(['resources/css/app.css', 'resources/js/app.js'])
