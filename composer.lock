@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1def32736f3689d77fe086c57024ca2a",
+    "content-hash": "db6d6b6d68e150d10ceccb7c7e717969",
     "packages": [
         {
             "name": "brick/math",
@@ -6273,35 +6273,36 @@
         },
         {
             "name": "wendelladriel/slidewire",
-            "version": "dev-main",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WendellAdriel/slidewire.git",
+                "reference": "5b314346ab7ba87dedd76f283c2de1cf81a1b9be"
+            },
             "dist": {
-                "type": "path",
-                "url": "../slidewire",
-                "reference": "13b1c383ba2d078b7227bdee89a23efb7ddc20db"
+                "type": "zip",
+                "url": "https://api.github.com/repos/WendellAdriel/slidewire/zipball/5b314346ab7ba87dedd76f283c2de1cf81a1b9be",
+                "reference": "5b314346ab7ba87dedd76f283c2de1cf81a1b9be",
+                "shasum": ""
             },
             "require": {
-                "illuminate/console": "^12.0",
-                "illuminate/contracts": "^12.0",
-                "illuminate/filesystem": "^12.0",
-                "illuminate/support": "^12.0",
-                "illuminate/view": "^12.0",
-                "livewire/flux": "^2.0",
-                "livewire/livewire": "^4.0",
+                "illuminate/console": "^12.0|^13.0",
+                "illuminate/contracts": "^12.0|^13.0",
+                "illuminate/filesystem": "^12.0|^13.0",
+                "illuminate/support": "^12.0|^13.0",
+                "illuminate/view": "^12.0|^13.0",
+                "livewire/livewire": "^4.2",
                 "phiki/phiki": "^2.1",
                 "php": "^8.4"
             },
             "require-dev": {
-                "fakerphp/faker": "^1.23",
-                "laravel/framework": "^12.0",
-                "laravel/pint": "^1.24",
-                "mockery/mockery": "^1.6",
-                "nunomaduro/collision": "^8.6",
-                "orchestra/testbench": "^10.0",
+                "laravel/pint": "^1.28",
+                "orchestra/testbench": "^10.9",
                 "pestphp/pest": "^4.4",
-                "pestphp/pest-plugin-browser": "^4.0",
-                "pestphp/pest-plugin-laravel": "^4.0",
+                "pestphp/pest-plugin-browser": "^4.3",
+                "pestphp/pest-plugin-laravel": "^4.1",
                 "pestphp/pest-plugin-type-coverage": "^4.0",
-                "rector/rector": "^2.2"
+                "rector/rector": "^2.3"
             },
             "type": "library",
             "extra": {
@@ -6316,57 +6317,33 @@
                     "WendellAdriel\\SlideWire\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "lint": [
-                    "pint --parallel",
-                    "rector"
-                ],
-                "test:lint": [
-                    "pint --parallel --test",
-                    "rector --dry-run"
-                ],
-                "test:types": [
-                    "pest --type-coverage --min=100"
-                ],
-                "test:unit": [
-                    "pest --parallel --exclude-group=browser"
-                ],
-                "test:browser": [
-                    "pest --group=browser"
-                ],
-                "test:browser:ci": [
-                    "pest --group=browser --compact"
-                ],
-                "test": [
-                    "@test:lint",
-                    "@test:types",
-                    "@test:unit"
-                ],
-                "prepare": [
-                    "@lint",
-                    "@test"
-                ],
-                "pre-package-uninstall": [
-                    "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "description": "Reveal-style presentations for Laravel using Livewire.",
+            "description": "Create beautiful presentations powered by Livewire",
             "keywords": [
-                "framework",
-                "laravel"
+                "blade",
+                "laravel",
+                "livewire",
+                "presentations",
+                "slides"
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/WendellAdriel/slidewire/issues",
+                "source": "https://github.com/WendellAdriel/slidewire/tree/v1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/wendelladriel",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/WendellAdriel",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-03-13T15:47:27+00:00"
         }
     ],
     "packages-dev": [
@@ -10238,9 +10215,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "wendelladriel/slidewire": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
