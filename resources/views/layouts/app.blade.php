@@ -16,6 +16,7 @@
         <meta name="twitter:title" content="{{ $metaTitle ?? $title ?? 'SlideWire' }}">
         <meta name="twitter:description" content="{{ $metaDescription ?? 'SlideWire documentation and presentation examples.' }}">
         <meta name="twitter:image" content="{{ $metaImage ?? url('/cover.png') }}">
+        <script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="hOO5Fej7RTPRYHpp7NYLPc2zdvBaqYEv"></script>
 
         @fluxAppearance
 

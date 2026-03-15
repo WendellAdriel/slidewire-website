@@ -64,3 +64,11 @@ it('renders heading anchors and readme next navigation', function (): void {
         ->assertSee('href="/docs/installation"', false)
         ->assertSee('Next', false);
 });
+
+it('includes pirsch analytics on docs pages', function (): void {
+    test()->get('/docs')
+        ->assertSuccessful()
+        ->assertSee('src="https://api.pirsch.io/pa.js"', false)
+        ->assertSee('id="pianjs"', false)
+        ->assertSee('data-code="hOO5Fej7RTPRYHpp7NYLPc2zdvBaqYEv"', false);
+});

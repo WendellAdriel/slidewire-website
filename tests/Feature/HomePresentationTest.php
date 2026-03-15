@@ -46,3 +46,11 @@ it('showcases the major slidewire features on the homepage deck', function (): v
         ->assertSee('Brand decks with fonts, backgrounds, and richer visuals out of the box.')
         ->assertSee('SlideWire ships with a Boost AI skill for beautiful deck creation.');
 });
+
+it('includes pirsch analytics on the homepage deck', function (): void {
+    test()->get('/')
+        ->assertSuccessful()
+        ->assertSee('src="https://api.pirsch.io/pa.js"', false)
+        ->assertSee('id="pianjs"', false)
+        ->assertSee('data-code="hOO5Fej7RTPRYHpp7NYLPc2zdvBaqYEv"', false);
+});

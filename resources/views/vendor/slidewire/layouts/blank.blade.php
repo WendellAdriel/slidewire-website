@@ -15,6 +15,7 @@
     <meta name="twitter:title" content="SlideWire">
     <meta name="twitter:description" content="Create beautiful Livewire-powered presentations with SlideWire.">
     <meta name="twitter:image" content="{{ url('/cover.png') }}">
+    <script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="hOO5Fej7RTPRYHpp7NYLPc2zdvBaqYEv"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
     <style>
