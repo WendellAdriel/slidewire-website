@@ -33,5 +33,10 @@ jobs:
       - name: Install Node dependencies
         run: npm install
 
+      - name: Prepare application
+        run: |
+          cp .env.example .env
+          php artisan key:generate --no-interaction
+
       - name: Run tests
         run: composer test
