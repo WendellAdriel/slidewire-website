@@ -71,6 +71,13 @@
         "test:types": [
             "pest --type-coverage --min=100"
         ],
+        "ci:setup": [
+            "composer install --no-interaction --prefer-dist --optimize-autoloader",
+            "npm install",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan key:generate --no-interaction",
+            "npm run build"
+        ],
         "ci:check": [
             "Composer\\Config::disableProcessTimeout",
             "@test"
