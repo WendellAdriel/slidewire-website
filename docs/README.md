@@ -11,6 +11,7 @@ SlideWire is a Laravel package for building presentation decks with Livewire. Pr
 <a name="available-guides"></a>
 ## Available guides
 
+- [Changelog](./changelog.md)
 - [Installation](./installation.md)
 - [Quickstart](./quickstart.md)
 - [Routing and presentation discovery](./routing.md)

@@ -58,11 +58,32 @@ it('exposes branded docs chrome', function (): void {
 });
 
 it('renders heading anchors and readme next navigation', function (): void {
-    test()->get('/docs')
+    $content = test()->get('/docs')
         ->assertSuccessful()
         ->assertSee('id="available-guides"', false)
         ->assertSee('href="/docs/installation"', false)
-        ->assertSee('Next', false);
+        ->assertSee('href="/docs/changelog"', false)
+        ->assertSee('Next', false)
+        ->getContent();
+
+    $overviewPosition = strpos((string) $content, 'href="/docs"');
+    $changelogPosition = strpos((string) $content, 'href="/docs/changelog"');
+    $installationPosition = strpos((string) $content, 'href="/docs/installation"');
+
+    expect($overviewPosition)->not->toBeFalse();
+    expect($changelogPosition)->not->toBeFalse();
+    expect($installationPosition)->not->toBeFalse();
+    expect($overviewPosition)->toBeLessThan($changelogPosition);
+    expect($changelogPosition)->toBeLessThan($installationPosition);
+});
+
+it('renders the changelog page from markdown', function (): void {
+    test()->get('/docs/changelog')
+        ->assertSuccessful()
+        ->assertSee('Changelog')
+        ->assertSee('SlideWire follows semantic versioning.')
+        ->assertSee('v1.0.1')
+        ->assertSee('Fixed slide overflow on smaller screens.');
 });
 
 it('includes pirsch analytics on docs pages', function (): void {
