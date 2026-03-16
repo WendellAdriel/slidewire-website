@@ -37,14 +37,20 @@ it('applies the expected deck controls and theme configuration', function (): vo
 });
 
 it('showcases the major slidewire features on the homepage deck', function (): void {
-    test()->get('/')
+    $content = test()->get('/')
         ->assertSuccessful()
         ->assertSee('A presentation workflow that still feels like Laravel.')
         ->assertSee('Move through decks in two dimensions.')
         ->assertSee('Transitions and reveals stay focused on the story.')
         ->assertSee('Build decks with Blade, markdown, code, and diagrams.')
         ->assertSee('Brand decks with fonts, backgrounds, and richer visuals out of the box.')
-        ->assertSee('SlideWire ships with a Boost AI skill for beautiful deck creation.');
+        ->assertSee('SlideWire ships with a Boost AI skill for beautiful deck creation.')
+        ->getContent();
+
+    expect($content)
+        ->toContain('data-text-type="heading"')
+        ->toContain('data-text-type="paragraph"')
+        ->toContain('data-animation="typewriter"');
 });
 
 it('includes pirsch analytics on the homepage deck', function (): void {

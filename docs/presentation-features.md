@@ -6,6 +6,7 @@
 - [Fragments](#fragments)
 - [Auto-slide](#auto-slide)
 - [Auto-animate](#auto-animate)
+- [Component-level animations](#component-level-animations)
 - [Backgrounds and media](#backgrounds-and-media)
 - [Code highlighting](#code-highlighting)
 - [Diagrams](#diagrams)
@@ -113,6 +114,50 @@ Auto-animate lets matching elements transition smoothly between consecutive slid
     <div data-auto-animate-id="card">B</div>
 </x-slidewire::slide>
 ```
+
+<a name="component-level-animations"></a>
+## Component-level animations
+
+`text` and `image` components support element-level entry animations through `animation` and `animation-speed`.
+
+```blade
+<x-slidewire::text type="heading" animation="slide-up">
+    Product Launch
+</x-slidewire::text>
+
+<x-slidewire::image
+    src="/images/product-shot.png"
+    alt="Product shot"
+    animation="pop"
+    animation-speed="default"
+/>
+```
+
+`animation-speed` accepts the same values as slide transitions:
+
+- `fast`
+- `default`
+- `slow`
+
+When the attribute is omitted, component animations default to `default`.
+
+Supported animation names are:
+
+- `fade`
+- `pop`
+- `zoom-in`
+- `zoom-out`
+- `slide-left`
+- `slide-right`
+- `slide-up`
+- `slide-down`
+- `blur`
+- `typewriter` (`text` only)
+
+Component animations run inside the existing SlideWire runtime when slides enter. If the user prefers reduced motion, SlideWire keeps the content visible and skips the animated effect.
+
+> [!NOTE]
+> `typewriter` is designed for text content. When used on images, SlideWire treats it as a no-op instead of throwing an error.
 
 <a name="backgrounds-and-media"></a>
 ## Backgrounds and media

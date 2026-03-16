@@ -4,6 +4,8 @@
 - [Slide](#slide)
 - [Vertical slide](#vertical-slide)
 - [Fragment](#fragment)
+- [Text](#text)
+- [Image](#image)
 - [Markdown](#markdown)
 - [Code](#code)
 - [Diagram](#diagram)
@@ -108,6 +110,63 @@ Slide attributes become metadata that SlideWire uses at render time for transiti
 ```
 
 If explicit indexes are omitted, fragments are still counted and revealed in order.
+
+<a name="text"></a>
+## Text
+
+`<x-slidewire::text>` renders semantic text elements without repeating the same markup and animation metadata by hand.
+
+Supported attributes include:
+
+- `type` (`paragraph`, `inline`, `heading`)
+- `orientation` (`horizontal`, `vertical`)
+- `animation`
+- `animation-speed` (`fast`, `default`, `slow`)
+- `class`
+- any additional HTML attributes that make sense on the rendered element
+
+```blade
+<x-slidewire::text
+    type="heading"
+    orientation="vertical"
+    animation="slide-up"
+    animation-speed="slow"
+    class="text-4xl font-semibold"
+>
+    Launch Day
+</x-slidewire::text>
+```
+
+By default, the text component renders a `<p>` tag with horizontal layout. `type="inline"` renders a `<span>`, while `type="heading"` renders an `<h2>`.
+
+Use `orientation="vertical"` for side labels, editorial layouts, or compact callouts. For longer prose or more custom markup, you may still prefer plain HTML.
+
+<a name="image"></a>
+## Image
+
+`<x-slidewire::image>` renders a normal `<img>` tag and adds the same animation contract used by other SlideWire content components.
+
+Supported attributes include:
+
+- all native image attributes like `src`, `alt`, `class`, `width`, `height`, `loading`, `decoding`, and `fetchpriority`
+- `animation`
+- `animation-speed` (`fast`, `default`, `slow`)
+
+```blade
+<x-slidewire::image
+    src="/images/product-shot.png"
+    alt="Product shot"
+    class="w-72 rounded-2xl shadow-2xl"
+    loading="lazy"
+    animation="pop"
+    animation-speed="default"
+/>
+```
+
+The image component does not replace the native `<img>` API. Instead, it forwards standard attributes directly to the rendered element.
+
+> [!NOTE]
+> Always provide useful `alt` text unless the image is purely decorative.
 
 <a name="markdown"></a>
 ## Markdown

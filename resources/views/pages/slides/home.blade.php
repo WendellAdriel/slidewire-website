@@ -24,10 +24,12 @@ new class() extends Component
 
                 <div class="space-y-4">
                     <img src="/slidewire-logo.png" alt="SlideWire logo" class="h-20 w-auto drop-shadow-[0_0_30px_rgba(217,70,239,0.45)] sm:h-24">
-                    <h1 class="text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">SlideWire</h1>
-                    <p class="max-w-2xl text-lg leading-8 text-cyan-100/90 sm:text-xl">
+                    <x-slidewire::text type="heading" animation="slide-up" class="text-5xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
+                        SlideWire
+                    </x-slidewire::text>
+                    <x-slidewire::text animation="fade" animation-speed="slow" class="max-w-2xl text-lg leading-8 text-cyan-100/90 sm:text-xl">
                         Create beautiful presentations powered by Livewire, with polished navigation, expressive motion, and a Blade-first workflow.
-                    </p>
+                    </x-slidewire::text>
                 </div>
 
                 <div class="flex flex-wrap gap-4">
@@ -73,11 +75,11 @@ new class() extends Component
     <x-slidewire::slide>
         <div class="mx-auto flex h-full w-full max-w-6xl flex-col justify-between gap-10">
             <div class="max-w-2xl space-y-6">
-                <p class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Why SlideWire</p>
-                <h2 class="text-4xl font-semibold text-white sm:text-5xl">A presentation workflow that still feels like Laravel.</h2>
-                <p class="text-lg leading-8 text-cyan-100/90">
+                <x-slidewire::text type="inline" animation="fade" class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Why SlideWire</x-slidewire::text>
+                <x-slidewire::text type="heading" animation="slide-up" class="text-4xl font-semibold text-white sm:text-5xl">A presentation workflow that still feels like Laravel.</x-slidewire::text>
+                <x-slidewire::text animation="fade" class="text-lg leading-8 text-cyan-100/90">
                     SlideWire keeps deck state on the server with Livewire, so you can build interactive presentations without leaving the Laravel toolset they already use every day.
-                </p>
+                </x-slidewire::text>
             </div>
 
             <div class="grid w-full gap-4 md:grid-cols-3">
@@ -107,8 +109,8 @@ new class() extends Component
         <x-slidewire::slide>
             <div class="mx-auto grid h-full w-full max-w-6xl gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
                 <div class="space-y-6">
-                    <p class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Navigation</p>
-                    <h2 class="text-4xl font-semibold text-white sm:text-5xl">Move through decks in two dimensions.</h2>
+                    <x-slidewire::text type="inline" animation="fade" class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Navigation</x-slidewire::text>
+                    <x-slidewire::text type="heading" animation="slide-right" class="text-4xl font-semibold text-white sm:text-5xl">Move through decks in two dimensions.</x-slidewire::text>
                     <p class="text-lg leading-8 text-cyan-100/90">
                         SlideWire supports keyboard, click, swipe, and hash-based navigation, plus vertical stacks for deeper drill-downs inside a single topic.
                     </p>
@@ -139,8 +141,8 @@ new class() extends Component
         <x-slidewire::slide>
             <div class="mx-auto grid h-full w-full max-w-6xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
                 <div class="space-y-6">
-                    <p class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Motion</p>
-                    <h2 class="text-4xl font-semibold text-white sm:text-5xl">Transitions and reveals stay focused on the story.</h2>
+                    <x-slidewire::text type="inline" animation="fade" class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Motion</x-slidewire::text>
+                    <x-slidewire::text type="heading" animation="slide-left" class="text-4xl font-semibold text-white sm:text-5xl">Transitions and reveals stay focused on the story.</x-slidewire::text>
                     <p class="text-lg leading-8 text-cyan-100/90">
                         Fade, slide, zoom, fragments, auto-animate, and auto-slide let each deck control pacing without needing a separate front-end framework.
                     </p>
@@ -168,8 +170,8 @@ new class() extends Component
     <x-slidewire::slide>
         <div class="mx-auto grid h-full w-full max-w-6xl gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div class="space-y-6">
-                <p class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Workflow</p>
-                <h2 class="text-4xl font-semibold text-white sm:text-5xl">Build decks with Blade, markdown, code, and diagrams.</h2>
+                <x-slidewire::text type="inline" animation="fade" class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Workflow</x-slidewire::text>
+                <x-slidewire::text type="heading" animation="slide-up" class="text-4xl font-semibold text-white sm:text-5xl">Build decks with Blade, markdown, code, and diagrams.</x-slidewire::text>
                 <p class="text-lg leading-8 text-cyan-100/90">
                     Build decks in a single Blade file, mix in Tailwind composition, and reach for purpose-built SlideWire components when content needs code samples or visual structure.
                 </p>
@@ -254,8 +256,8 @@ new class() extends Component
     <x-slidewire::slide>
         <div class="mx-auto flex h-full w-full max-w-5xl flex-col justify-center gap-8">
             <div class="max-w-3xl space-y-5 rounded-[2rem] border border-white/10 bg-slate-950/60 p-8 backdrop-blur-xl">
-                <p class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">AI ready</p>
-                <h2 class="text-4xl font-semibold text-white sm:text-5xl">SlideWire ships with a Boost AI skill for beautiful deck creation.</h2>
+                <x-slidewire::text type="inline" animation="fade" class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">AI ready</x-slidewire::text>
+                <x-slidewire::text type="heading" animation="blur" animation-speed="slow" class="text-4xl font-semibold text-white sm:text-5xl">SlideWire ships with a Boost AI skill for beautiful deck creation.</x-slidewire::text>
                 <p class="text-lg leading-8 text-cyan-100/90">
                     AI agents can use the bundled SlideWire Boost skill to scaffold decks, choose the right components, structure horizontal and vertical flow, and refine visuals without guessing at package conventions.
                 </p>
@@ -280,8 +282,8 @@ new class() extends Component
 
     <x-slidewire::slide>
         <div class="mx-auto flex h-full w-full max-w-5xl flex-col items-center justify-center gap-8 text-center">
-            <p class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Get started</p>
-            <h2 class="text-4xl font-semibold text-white sm:text-5xl">Explore the package, then build your own deck.</h2>
+            <x-slidewire::text type="inline" animation="fade" class="text-sm uppercase tracking-[0.35em] text-cyan-200/75">Get started</x-slidewire::text>
+            <x-slidewire::text type="heading" animation="typewriter" animation-speed="slow" class="text-4xl font-semibold text-white sm:text-5xl">Explore the package, then build your own deck.</x-slidewire::text>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="/docs" class="inline-flex items-center justify-center rounded-full border border-cyan-300/40 bg-cyan-300/15 px-6 py-3 text-sm font-semibold text-cyan-50 transition hover:border-cyan-200 hover:bg-cyan-300/25">
                     Explore the docs

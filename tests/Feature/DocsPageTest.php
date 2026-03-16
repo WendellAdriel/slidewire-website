@@ -82,6 +82,10 @@ it('renders the changelog page from markdown', function (): void {
         ->assertSuccessful()
         ->assertSee('Changelog')
         ->assertSee('SlideWire follows semantic versioning.')
+        ->assertSee('v1.1.0')
+        ->assertSee('Added a')
+        ->assertSee('semantic headings')
+        ->assertSee('native image API')
         ->assertSee('v1.0.1')
         ->assertSee('Fixed slide overflow on smaller screens.');
 });
@@ -92,4 +96,27 @@ it('includes pirsch analytics on docs pages', function (): void {
         ->assertSee('src="https://api.pirsch.io/pa.js"', false)
         ->assertSee('id="pianjs"', false)
         ->assertSee('data-code="hOO5Fej7RTPRYHpp7NYLPc2zdvBaqYEv"', false);
+});
+
+it('documents the text and image components in the components reference', function (): void {
+    test()->get('/docs/components')
+        ->assertSuccessful()
+        ->assertSee('Text')
+        ->assertSee('Image')
+        ->assertSee('orientation')
+        ->assertSee('animation')
+        ->assertSee('animation-speed')
+        ->assertSee('loading')
+        ->assertSee('alt');
+});
+
+it('documents component-level animations in the presentation features guide', function (): void {
+    test()->get('/docs/presentation-features')
+        ->assertSuccessful()
+        ->assertSee('Component-level animations')
+        ->assertSee('fast')
+        ->assertSee('slow')
+        ->assertSee('zoom-in')
+        ->assertSee('slide-up')
+        ->assertSee('typewriter');
 });
