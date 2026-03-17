@@ -34,6 +34,8 @@ return [
     |
     */
 
+    'serializable_classes' => false,
+
     'stores' => [
 
         'array' => [
