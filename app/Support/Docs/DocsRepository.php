@@ -348,7 +348,14 @@ final readonly class DocsRepository
                 continue;
             }
 
-            if (Str::startsWith($href, ['http://', 'https://', 'mailto:', '#'])) {
+            if (Str::startsWith($href, ['http://', 'https://'])) {
+                $link->setAttribute('target', '_blank');
+                $link->setAttribute('rel', 'noreferrer noopener');
+
+                continue;
+            }
+
+            if (Str::startsWith($href, ['mailto:', '#'])) {
                 continue;
             }
 

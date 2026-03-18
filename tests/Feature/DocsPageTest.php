@@ -20,8 +20,8 @@ it('embeds the overview video and credits Eric L. Barnes on the docs index', fun
         ->assertSee('Overview video')
         ->assertSee('This video offers a quick overview of the package and walks through the core SlideWire workflow.')
         ->assertSee('src="https://www.youtube.com/embed/BazsWOLl-G4"', false)
-        ->assertSee('href="https://x.com/ericlbarnes"', false)
-        ->assertSee('href="https://laravel-news.com/"', false)
+        ->assertSee('href="https://x.com/ericlbarnes" target="_blank" rel="noreferrer noopener"', false)
+        ->assertSee('href="https://laravel-news.com/" target="_blank" rel="noreferrer noopener"', false)
         ->assertSee('Eric L. Barnes')
         ->assertSee('Laravel News');
 });
