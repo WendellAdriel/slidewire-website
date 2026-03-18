@@ -205,6 +205,7 @@ final readonly class DocsRepository
         }
 
         $this->rewriteLinks($xpath);
+        $this->transformVideoEmbeds($xpath, $dom);
         $this->transformBlockquotes($xpath, $dom);
         $this->highlightCodeBlocks($xpath, $dom);
         $this->removeDuplicateLeadContent($xpath, $markdown);
@@ -239,7 +240,7 @@ final readonly class DocsRepository
 
         $links = $xpath->query('.//a[@href]', $candidate);
 
-        if ($links === false || $links->length !== 2) {
+        if ($links === false || $links->length === 0) {
             return;
         }
 
@@ -372,6 +373,107 @@ final readonly class DocsRepository
 
             $link->setAttribute('href', route('docs.page', ['page' => $slug], false) . $anchor);
         }
+    }
+
+    private function transformVideoEmbeds(DOMXPath $xpath, DOMDocument $dom): void
+    {
+        $paragraphs = [];
+
+        foreach ($xpath->query('//*[@id="docs-root"]//p') as $paragraph) {
+            if ($paragraph instanceof DOMElement) {
+                $paragraphs[] = $paragraph;
+            }
+        }
+
+        foreach ($paragraphs as $paragraph) {
+            $link = $this->standaloneParagraphLink($paragraph);
+
+            if (! $link instanceof DOMElement) {
+                continue;
+            }
+
+            $embedUrl = $this->youtubeEmbedUrl($link->getAttribute('href'));
+
+            if ($embedUrl === null) {
+                continue;
+            }
+
+            $this->replaceNodeWithHtml($dom, $paragraph, $this->renderVideoEmbed($embedUrl));
+        }
+    }
+
+    private function standaloneParagraphLink(DOMElement $paragraph): ?DOMElement
+    {
+        $link = null;
+
+        foreach ($paragraph->childNodes as $child) {
+            if ($child instanceof DOMElement) {
+                if ($child->tagName !== 'a' || $link instanceof DOMElement) {
+                    return null;
+                }
+
+                $link = $child;
+
+                continue;
+            }
+
+            if (trim($child->textContent) !== '') {
+                return null;
+            }
+        }
+
+        return $link;
+    }
+
+    private function youtubeEmbedUrl(string $url): ?string
+    {
+        $parts = parse_url($url);
+
+        if (! is_array($parts)) {
+            return null;
+        }
+
+        $host = Str::lower($parts['host'] ?? '');
+        $path = trim($parts['path'] ?? '', '/');
+
+        if ($host === 'youtu.be' && $path !== '') {
+            return 'https://www.youtube.com/embed/' . $path;
+        }
+
+        if (! in_array($host, ['youtube.com', 'www.youtube.com'], true)) {
+            return null;
+        }
+
+        if ($path === 'watch') {
+            parse_str($parts['query'] ?? '', $query);
+
+            if (! is_string($query['v'] ?? null) || $query['v'] === '') {
+                return null;
+            }
+
+            return 'https://www.youtube.com/embed/' . $query['v'];
+        }
+
+        if (Str::startsWith($path, ['embed/', 'shorts/'])) {
+            $segments = explode('/', $path);
+            $videoId = $segments[1] ?? null;
+
+            if (! is_string($videoId) || $videoId === '') {
+                return null;
+            }
+
+            return 'https://www.youtube.com/embed/' . $videoId;
+        }
+
+        return null;
+    }
+
+    private function renderVideoEmbed(string $embedUrl): string
+    {
+        return sprintf(
+            '<div class="docs-video-embed"><iframe src="%s" title="SlideWire overview video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>',
+            e($embedUrl),
+        );
     }
 
     private function transformBlockquotes(DOMXPath $xpath, DOMDocument $dom): void
