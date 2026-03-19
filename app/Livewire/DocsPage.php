@@ -26,6 +26,7 @@ final class DocsPage extends Component
 
         return view('livewire.docs-page', [
             'page' => $page,
+            'currentVersion' => DocsRepository::CURRENT_VERSION,
         ]);
     }
 }

@@ -17,10 +17,15 @@
             <flux:icon.bars-2 class="size-5" />
         </button>
 
-        <a href="{{ route('docs', absolute: false) }}" wire:navigate.hover class="flex items-center gap-3 text-sm font-semibold text-white" @click="mobileMenuOpen = false">
+        <a href="{{ route('docs', absolute: false) }}" wire:navigate.hover class="flex min-w-0 flex-1 items-center gap-3 text-sm font-semibold text-white" @click="mobileMenuOpen = false">
             <img src="/slidewire-logo.png" alt="SlideWire logo" class="h-8 w-auto">
             <span>SlideWire Docs</span>
         </a>
+
+        <div class="ml-auto text-right" data-docs-version-mobile>
+            <p class="text-[0.65rem] font-medium tracking-[0.18em] text-cyan-200/60">Current version</p>
+            <p class="text-sm font-semibold text-cyan-50">{{ $currentVersion }}</p>
+        </div>
 
     </header>
 
@@ -91,6 +96,11 @@
                                 <p class="text-balance text-base font-semibold tracking-[0.14em] text-cyan-200/70 xl:text-lg">SlideWire Docs</p>
                             </div>
                         </a>
+
+                        <div class="rounded-2xl border border-cyan-300/16 bg-cyan-300/7 px-4 py-3" data-docs-version-desktop>
+                            <p class="text-xs font-medium tracking-[0.18em] text-cyan-200/60">Current version</p>
+                            <p class="mt-1 text-lg font-semibold text-white">{{ $currentVersion }}</p>
+                        </div>
 
                         <nav class="docs-menu-nav">
                             @foreach ($page->navigation as $item)

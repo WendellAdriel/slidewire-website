@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Support\Docs\DocsRepository;
+
 it('renders the docs index from docs readme', function (): void {
     test()->get('/docs')
         ->assertSuccessful()
@@ -60,13 +62,19 @@ it('keeps the docs route name stable', function (): void {
 });
 
 it('exposes branded docs chrome', function (): void {
-    test()->get('/docs')
+    $content = test()->get('/docs')
         ->assertSuccessful()
         ->assertSee('data-docs-sidebar', false)
         ->assertSee('data-docs-mobile-toggle', false)
         ->assertSee('data-docs-toc', false)
+        ->assertSee('data-docs-version-mobile', false)
+        ->assertSee('data-docs-version-desktop', false)
         ->assertSee('wire:navigate', false)
-        ->assertSee('SlideWire Docs');
+        ->assertSee('SlideWire Docs')
+        ->assertSee(DocsRepository::CURRENT_VERSION)
+        ->getContent();
+
+    expect(substr_count((string) $content, DocsRepository::CURRENT_VERSION))->toBeGreaterThanOrEqual(2);
 });
 
 it('renders heading anchors and readme next navigation', function (): void {
