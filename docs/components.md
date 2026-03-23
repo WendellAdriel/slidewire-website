@@ -7,6 +7,7 @@
 - [Panel](#panel)
 - [Title slide](#title-slide)
 - [Two column slide](#two-column-slide)
+- [Media split slide](#media-split-slide)
 - [Timeline slide](#timeline-slide)
 - [Steps slide](#steps-slide)
 - [Agenda slide](#agenda-slide)
@@ -209,6 +210,42 @@ Route::slidewire('/slides/demo', 'demo/showcase');
 ```
 
 Use this component when both sides should stay flexible and composable. It also replaces the older media split pattern: if one side should feel more visual, place the image, diagram, or code inside a `panel` or framed wrapper within the relevant slot.
+
+<a name="media-split-slide"></a>
+## Media split slide
+
+`<x-slidewire::media-split-slide>` provides a more opinionated split layout when one side should lead with media and the other should support it with copy, code, or structured content.
+
+Supported attributes include:
+
+- `media-position` (`left`, `right`)
+- `ratio` (`1:1`, `3:2`, `2:3`)
+- `media-style` (`plain`, `framed`, `panel`)
+- `gap` (`lg`, `xl`)
+- `theme`
+- `class`
+
+```blade
+<x-slidewire::media-split-slide media-position="right" ratio="3:2" media-style="panel">
+    <x-slot name="media">
+        <x-slidewire::image
+            src="/images/product-shot.png"
+            alt="Product dashboard"
+            class="w-full rounded-2xl"
+        />
+    </x-slot>
+
+    <x-slot name="content">
+        <x-slidewire::panel title="Launch dashboard" overline="Media-led layout" variant="glass">
+            Lead with the visual, then use the content slot for the explanation, callouts, or supporting actions.
+        </x-slidewire::panel>
+    </x-slot>
+</x-slidewire::media-split-slide>
+```
+
+Use `plain` when the media should render without extra framing, `framed` when it needs a clearer border, and `panel` when the media side should feel more atmospheric or elevated.
+
+This component works well for screenshots, product reveals, before-and-after comparisons, or any slide where the visual should set the rhythm of the layout.
 
 <a name="timeline-slide"></a>
 ## Timeline slide

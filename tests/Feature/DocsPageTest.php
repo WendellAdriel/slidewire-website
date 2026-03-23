@@ -102,6 +102,8 @@ it('renders the changelog page from markdown', function (): void {
         ->assertSuccessful()
         ->assertSee('Changelog')
         ->assertSee('SlideWire follows semantic versioning.')
+        ->assertSee('v1.3.1')
+        ->assertSee('media split layout')
         ->assertSee('v1.3.0')
         ->assertSee('first-party set of presentation-ready UI components')
         ->assertSee('per-instance')
@@ -128,6 +130,7 @@ it('documents the new layout, text, and image components in the components refer
         ->assertSee('Panel')
         ->assertSee('Title slide')
         ->assertSee('Two column slide')
+        ->assertSee('Media split slide')
         ->assertSee('Timeline slide')
         ->assertSee('Steps slide')
         ->assertSee('Agenda slide')
@@ -139,7 +142,8 @@ it('documents the new layout, text, and image components in the components refer
         ->assertSee('animation-speed')
         ->assertSee('loading')
         ->assertSee('alt')
-        ->assertDontSee('Media split slide')
+        ->assertSee('media-position')
+        ->assertSee('media-style')
         ->assertDontSee('Speaker slide');
 });
 
