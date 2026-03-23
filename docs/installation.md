@@ -16,6 +16,7 @@ SlideWire currently requires the same core stack validated by the package itself
 - PHP `^8.4`
 - Laravel `^12.0`
 - Livewire `^4.0`
+- Tailwind CSS `^4.0`
 
 Code highlighting is powered by `phiki/phiki`, which is installed automatically as a package dependency.
 
@@ -44,6 +45,17 @@ This publishes:
 - `config/slidewire.php`
 - `resources/views/vendor/slidewire`
 - `stubs/slidewire`
+
+To use the package UI components, add the SlideWire package sources to your app's `resources/css/app.css` file:
+
+```css
+@import 'tailwindcss';
+
+@source '../views';
+@source '../../vendor/wendelladriel/slidewire/resources/views/**/*.blade.php';
+@source '../../vendor/wendelladriel/slidewire/src/**/*.php';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+```
 
 > [!NOTE]
 > If frontend changes are not reflected in the browser, make sure your app assets are running with `npm run dev` or have been built with `npm run build`.

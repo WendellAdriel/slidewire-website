@@ -4,13 +4,19 @@
 - [Slide](#slide)
 - [Vertical slide](#vertical-slide)
 - [Fragment](#fragment)
+- [Panel](#panel)
+- [Title slide](#title-slide)
+- [Two column slide](#two-column-slide)
+- [Timeline slide](#timeline-slide)
+- [Steps slide](#steps-slide)
+- [Agenda slide](#agenda-slide)
 - [Text](#text)
 - [Image](#image)
 - [Markdown](#markdown)
 - [Code](#code)
 - [Diagram](#diagram)
 
-SlideWire ships with a small set of focused Blade components for building presentations. Most decks are composed entirely from these primitives.
+SlideWire ships with a focused set of Blade components for building presentations. You may compose decks from low-level primitives like `slide`, `fragment`, `markdown`, and `code`, or reach for first-party layout components when you want modern, theme-aware structure with less repeated markup.
 
 <a name="deck"></a>
 ## Deck
@@ -111,6 +117,190 @@ Slide attributes become metadata that SlideWire uses at render time for transiti
 
 If explicit indexes are omitted, fragments are still counted and revealed in order.
 
+<a name="panel"></a>
+## Panel
+
+`<x-slidewire::panel>` renders a reusable surface for grouped content such as feature callouts, supporting copy, code snippets, or media.
+
+Supported attributes include:
+
+- `variant` (`default`, `elevated`, `outlined`, `glass`)
+- `title`
+- `overline`
+- `footer`
+- `padding` (`md`, `lg`)
+- `tone` (`default`, `primary`, `success`, `warning`, `danger`)
+- `theme`
+- `class`
+
+```blade
+<x-slidewire::panel
+    title="Launch metrics"
+    overline="Quarterly update"
+    footer="Next review on Friday"
+    variant="glass"
+    tone="primary"
+>
+    <p>Activation is climbing across every launch channel.</p>
+</x-slidewire::panel>
+```
+
+Use panels when content should feel intentionally framed, but you still want full control over the slot markup.
+
+<a name="title-slide"></a>
+## Title slide
+
+`<x-slidewire::title-slide>` provides an opinionated opening layout for deck titles, subtitles, and presenter metadata.
+
+Supported attributes include:
+
+- `title`
+- `subtitle`
+- `overline`
+- `speaker`
+- `event`
+- `date`
+- `align` (`left`, `center`)
+- `variant` (`default`, `hero`, `minimal`)
+- `theme`
+
+```blade
+<x-slidewire::title-slide
+    title="SlideWire Launch Kit"
+    subtitle="A first-party UI system for presentation-ready decks"
+    overline="Product keynote"
+    speaker="Wendell Adriel"
+    event="SlideWire Summit"
+    date="March 2026"
+    variant="hero"
+    align="center"
+/>
+```
+
+Use the title slide for opening moments, chapter separators, and simple title cards that should stay consistent across themes.
+
+<a name="two-column-slide"></a>
+## Two column slide
+
+`<x-slidewire::two-column-slide>` creates a responsive split layout with named `left` and `right` slots.
+
+Supported attributes include:
+
+- `ratio` (`1:1`, `2:1`, `1:2`)
+- `gap` (`md`, `lg`, `xl`)
+- `align` (`start`, `center`, `stretch`)
+- `reverse`
+- `class`
+
+```blade
+<x-slidewire::two-column-slide ratio="2:1" gap="xl" align="center">
+    <x-slot name="left">
+        <x-slidewire::panel title="Why teams switch" variant="glass">
+            Blade-first composition with less repeated Tailwind scaffolding.
+        </x-slidewire::panel>
+    </x-slot>
+
+    <x-slot name="right">
+        <x-slidewire::code language="php" size="text-sm">
+Route::slidewire('/slides/demo', 'demo/showcase');
+        </x-slidewire::code>
+    </x-slot>
+</x-slidewire::two-column-slide>
+```
+
+Use this component when both sides should stay flexible and composable. It also replaces the older media split pattern: if one side should feel more visual, place the image, diagram, or code inside a `panel` or framed wrapper within the relevant slot.
+
+<a name="timeline-slide"></a>
+## Timeline slide
+
+`<x-slidewire::timeline-slide>` and `<x-slidewire::timeline-item>` help you present milestones, roadmap stages, and chronological stories.
+
+Timeline slide attributes include:
+
+- `title`
+- `orientation` (`vertical`, `horizontal`)
+- `theme`
+
+Timeline item attributes include:
+
+- `title`
+- `label`
+- `description`
+- `status` (`default`, `complete`, `current`, `upcoming`)
+- `item-key`
+- `theme`
+
+```blade
+<x-slidewire::timeline-slide title="Delivery plan">
+    <x-slidewire::timeline-item title="Foundation" label="Phase 1" description="Ship shared UI tokens." status="complete" />
+    <x-slidewire::timeline-item title="Layouts" label="Phase 2" description="Add split, agenda, and narrative slide patterns." status="current" item-key="shipping" />
+    <x-slidewire::timeline-item title="Polish" label="Phase 3" description="Validate with fixtures and browser smoke tests." status="upcoming" />
+</x-slidewire::timeline-slide>
+```
+
+Use the vertical layout by default, then switch to horizontal when you have only a few high-level milestones.
+
+<a name="steps-slide"></a>
+## Steps slide
+
+`<x-slidewire::steps-slide>` and `<x-slidewire::step-item>` are useful for rollout phases, tutorials, and process walkthroughs.
+
+Steps slide attributes include:
+
+- `title`
+- `columns` (`1`, `2`, `3`)
+- `style` (`cards`, `minimal`, `connected`)
+- `theme`
+
+Step item attributes include:
+
+- `title`
+- `number`
+- `description`
+- `style`
+- `theme`
+
+```blade
+<x-slidewire::steps-slide title="Workflow" columns="3" style="cards">
+    <x-slidewire::step-item title="Plan" description="Choose the right structure for the talk." />
+    <x-slidewire::step-item title="Compose" description="Fill slots with text, code, or media." />
+    <x-slidewire::step-item title="Present" description="Keep the story paced with fragments and transitions." />
+</x-slidewire::steps-slide>
+```
+
+If `number` is omitted, SlideWire numbers steps automatically.
+
+<a name="agenda-slide"></a>
+## Agenda slide
+
+`<x-slidewire::agenda-slide>` and `<x-slidewire::agenda-item>` provide structured chapter and agenda layouts.
+
+Agenda slide attributes include:
+
+- `title`
+- `subtitle`
+- `style` (`list`, `cards`, `timeline`)
+- `highlight`
+- `theme`
+
+Agenda item attributes include:
+
+- `title`
+- `description`
+- `index`
+- `active`
+- `style`
+- `theme`
+
+```blade
+<x-slidewire::agenda-slide title="Agenda" subtitle="How we will spend the hour" style="cards">
+    <x-slidewire::agenda-item index="1" title="State of the product" description="What changed since last quarter" style="cards" />
+    <x-slidewire::agenda-item index="2" title="Launch plan" description="What ships next" style="cards" active />
+</x-slidewire::agenda-slide>
+```
+
+Use `list` for lighter chapter overviews, then move to `cards` or `timeline` when the structure should carry more visual weight.
+
 <a name="text"></a>
 ## Text
 
@@ -119,6 +309,7 @@ If explicit indexes are omitted, fragments are still counted and revealed in ord
 Supported attributes include:
 
 - `type` (`paragraph`, `inline`, `heading`)
+- `font` (any configured family from `config('slidewire.fonts')`)
 - `orientation` (`horizontal`, `vertical`)
 - `animation`
 - `animation-speed` (`fast`, `default`, `slow`)
@@ -128,6 +319,7 @@ Supported attributes include:
 ```blade
 <x-slidewire::text
     type="heading"
+    font="Inter"
     orientation="vertical"
     animation="slide-up"
     animation-speed="slow"
@@ -139,7 +331,7 @@ Supported attributes include:
 
 By default, the text component renders a `<p>` tag with horizontal layout. `type="inline"` renders a `<span>`, while `type="heading"` renders an `<h2>`.
 
-Use `orientation="vertical"` for side labels, editorial layouts, or compact callouts. For longer prose or more custom markup, you may still prefer plain HTML.
+Use `orientation="vertical"` for side labels, editorial layouts, or compact callouts. Use `font` when you want a one-off typography change that still stays within your configured presentation fonts. For longer prose or more custom markup, you may still prefer plain HTML.
 
 <a name="image"></a>
 ## Image

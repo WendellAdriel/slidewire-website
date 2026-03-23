@@ -7,6 +7,8 @@
 
 This guide walks through the fastest path from a fresh scaffold to a working SlideWire deck.
 
+Before you begin, make sure your app uses Tailwind CSS and includes the SlideWire `@source` entries described in the [installation guide](./installation.md), so the package UI component classes are available in your build.
+
 <a name="create-a-presentation"></a>
 ## Create a presentation
 
@@ -44,34 +46,49 @@ new class extends Component {
 
 <x-slidewire::deck theme="aurora" transition="fade">
     <x-slidewire::slide>
-        <div class="mx-auto max-w-5xl space-y-6">
-            <h1 class="text-4xl font-semibold tracking-tight">{{ $headline }}</h1>
-
-            <x-slidewire::fragment :index="0">
-                <p class="text-lg text-slate-200">Private beta is complete.</p>
-            </x-slidewire::fragment>
-
-            <x-slidewire::fragment :index="1">
-                <p class="text-lg text-slate-200">Pilot customers are now live.</p>
-            </x-slidewire::fragment>
-        </div>
+        <x-slidewire::title-slide
+            :title="$headline"
+            subtitle="A Blade-first product launch deck"
+            overline="SlideWire quickstart"
+            speaker="Launch team"
+        />
     </x-slidewire::slide>
 
     <x-slidewire::slide theme="white">
-        <div class="mx-auto max-w-4xl space-y-6">
-            <x-slidewire::markdown>
-## Launch metrics
+        <x-slidewire::two-column-slide ratio="2:1" gap="xl" align="center">
+            <x-slot name="left">
+                <x-slidewire::panel
+                    title="Launch metrics"
+                    overline="Status"
+                    footer="Use Blade, slots, and SlideWire primitives together"
+                    variant="glass"
+                >
+                    <div class="space-y-3">
+                        @foreach ($metrics as $metric)
+                            <x-slidewire::fragment>
+                                <p>{{ $metric }}</p>
+                            </x-slidewire::fragment>
+                        @endforeach
+                    </div>
+                </x-slidewire::panel>
+            </x-slot>
 
-@foreach ($metrics as $metric)
-- {{ $metric }}
-@endforeach
-            </x-slidewire::markdown>
-        </div>
+            <x-slot name="right">
+                <x-slidewire::agenda-slide
+                    title="Deck structure"
+                    subtitle="Start with expressive defaults, then customize"
+                    style="cards"
+                >
+                    <x-slidewire::agenda-item index="1" title="Open strong" description="Use title-slide for introductions and chapter cards." style="cards" active />
+                    <x-slidewire::agenda-item index="2" title="Compose" description="Layer panels, text, markdown, code, and media as needed." style="cards" />
+                </x-slidewire::agenda-slide>
+            </x-slot>
+        </x-slidewire::two-column-slide>
     </x-slidewire::slide>
 </x-slidewire::deck>
 ```
 
-The compiler supports public Livewire properties and render data returned from `with()`.
+The compiler supports public Livewire properties and render data returned from `with()`. You may start with raw HTML, or reach for first-party components like `title-slide`, `panel`, `agenda-slide`, and `text` when they reduce repeated layout markup.
 
 <a name="register-the-presentation-route"></a>
 ## Register the presentation route

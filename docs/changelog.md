@@ -1,6 +1,7 @@
 # Changelog
 
 - [Introduction](#introduction)
+- [v1.3.0](#v130)
 - [v1.2.0](#v120)
 - [v1.1.0](#v110)
 - [v1.0.1](#v101)
@@ -13,6 +14,16 @@ This page tracks notable SlideWire releases so you can quickly review what chang
 SlideWire follows semantic versioning. Patch releases usually focus on targeted fixes and polish, while minor and major releases may introduce new features or broader changes.
 
 If you need the full release history, including pull requests and comparisons, you may also review the [GitHub releases page](https://github.com/WendellAdriel/slidewire/releases).
+
+<a name="v130"></a>
+## v1.3.0
+
+`v1.3.0` is a feature release that adds a first-party set of presentation-ready UI components for modern SlideWire decks.
+
+- Added first-party UI components for panels, title slides, split layouts, timelines, steps, and agendas.
+- Added per-instance `font` overrides to the `text` component so decks can mix configured presentation fonts without custom inline styles.
+
+For the complete comparison, see the [`v1.2.0...v1.3.0` release diff](https://github.com/WendellAdriel/slidewire/compare/v1.2.0...v1.3.0).
 
 <a name="v120"></a>
 ## v1.2.0

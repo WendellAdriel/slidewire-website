@@ -2,6 +2,8 @@
 @import 'tailwindcss';
 
 @source '../views';
+@source '../../vendor/wendelladriel/slidewire/resources/views/**/*.blade.php';
+@source '../../vendor/wendelladriel/slidewire/src/**/*.php';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
 @theme {

@@ -33,7 +33,8 @@ it('applies the expected deck controls and theme configuration', function (): vo
         ->toContain('slidewire-theme-neon')
         ->toContain('data-theme="neon"')
         ->toContain('Sora text-cyan-100 text-lg')
-        ->toContain('family=Sora:wght@400;500;600;700');
+        ->toContain('family=Sora:wght@400;500;600;700')
+        ->toContain('JetBrainsMono');
 });
 
 it('showcases the major slidewire features on the homepage deck', function (): void {
@@ -50,6 +51,7 @@ it('showcases the major slidewire features on the homepage deck', function (): v
     expect($content)
         ->toContain('data-text-type="heading"')
         ->toContain('data-text-type="paragraph"')
+        ->toContain('data-style="cards"')
         ->toContain('data-animation="typewriter"');
 });
 

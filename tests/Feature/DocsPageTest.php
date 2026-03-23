@@ -102,6 +102,10 @@ it('renders the changelog page from markdown', function (): void {
         ->assertSuccessful()
         ->assertSee('Changelog')
         ->assertSee('SlideWire follows semantic versioning.')
+        ->assertSee('v1.3.0')
+        ->assertSee('first-party set of presentation-ready UI components')
+        ->assertSee('per-instance')
+        ->assertSee('font')
         ->assertSee('v1.1.0')
         ->assertSee('Added a')
         ->assertSee('semantic headings')
@@ -118,16 +122,34 @@ it('includes pirsch analytics on docs pages', function (): void {
         ->assertSee('data-code="hOO5Fej7RTPRYHpp7NYLPc2zdvBaqYEv"', false);
 });
 
-it('documents the text and image components in the components reference', function (): void {
+it('documents the new layout, text, and image components in the components reference', function (): void {
     test()->get('/docs/components')
         ->assertSuccessful()
+        ->assertSee('Panel')
+        ->assertSee('Title slide')
+        ->assertSee('Two column slide')
+        ->assertSee('Timeline slide')
+        ->assertSee('Steps slide')
+        ->assertSee('Agenda slide')
         ->assertSee('Text')
         ->assertSee('Image')
+        ->assertSee('font')
         ->assertSee('orientation')
         ->assertSee('animation')
         ->assertSee('animation-speed')
         ->assertSee('loading')
-        ->assertSee('alt');
+        ->assertSee('alt')
+        ->assertDontSee('Media split slide')
+        ->assertDontSee('Speaker slide');
+});
+
+it('updates the quickstart guide with first-party ui components', function (): void {
+    test()->get('/docs/quickstart')
+        ->assertSuccessful()
+        ->assertSee('title-slide')
+        ->assertSee('panel')
+        ->assertSee('agenda-slide')
+        ->assertSee('two-column-slide');
 });
 
 it('documents component-level animations in the presentation features guide', function (): void {
