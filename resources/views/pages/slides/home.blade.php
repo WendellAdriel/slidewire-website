@@ -37,6 +37,9 @@ new class() extends Component
                         <a href="/docs" class="inline-flex items-center justify-center rounded-full border border-cyan-300/40 bg-cyan-300/15 px-6 py-3 text-sm font-semibold text-cyan-50 shadow-[0_0_30px_rgba(34,211,238,0.2)] transition hover:border-cyan-200 hover:bg-cyan-300/25">
                             Explore the docs
                         </a>
+                        <a href="/showcase" class="inline-flex items-center justify-center rounded-full border border-amber-200/25 bg-white/8 px-6 py-3 text-sm font-semibold text-white/90 transition hover:border-amber-100/40 hover:bg-white/12">
+                            Open the showcase
+                        </a>
                         <a href="https://github.com/WendellAdriel/slidewire" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full border border-fuchsia-300/35 bg-fuchsia-300/10 px-6 py-3 text-sm font-semibold text-fuchsia-50 transition hover:border-fuchsia-200 hover:bg-fuchsia-300/20">
                             View on GitHub
                         </a>
@@ -290,6 +293,9 @@ new class() extends Component
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="/docs" class="inline-flex items-center justify-center rounded-full border border-cyan-300/40 bg-cyan-300/15 px-6 py-3 text-sm font-semibold text-cyan-50 transition hover:border-cyan-200 hover:bg-cyan-300/25">
                     Explore the docs
+                </a>
+                <a href="/showcase" class="inline-flex items-center justify-center rounded-full border border-amber-200/25 bg-white/8 px-6 py-3 text-sm font-semibold text-white/90 transition hover:border-amber-100/40 hover:bg-white/12">
+                    Open the showcase
                 </a>
                 <a href="https://github.com/WendellAdriel/slidewire" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full border border-fuchsia-300/35 bg-fuchsia-300/10 px-6 py-3 text-sm font-semibold text-fuchsia-50 transition hover:border-fuchsia-200 hover:bg-fuchsia-300/20">
                     Visit GitHub

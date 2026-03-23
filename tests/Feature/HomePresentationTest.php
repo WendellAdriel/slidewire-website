@@ -10,7 +10,9 @@ it('renders the home route as a slidewire presentation', function (): void {
         ->assertSee('Create beautiful presentations powered by Livewire')
         ->assertSee('src="/slidewire-logo.png"', false)
         ->assertSee('href="/docs"', false)
+        ->assertSee('href="/showcase"', false)
         ->assertSee('href="https://github.com/WendellAdriel/slidewire"', false)
+        ->assertSee('Open the showcase')
         ->assertSee('Tip: click anywhere or press Space to continue.')
         ->assertSee('target="_blank"', false)
         ->assertSee('rel="noopener noreferrer"', false);
