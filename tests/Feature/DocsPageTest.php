@@ -116,12 +116,22 @@ it('renders the changelog page from markdown', function (): void {
         ->assertSee('Fixed slide overflow on smaller screens.');
 });
 
-it('includes pirsch analytics on docs pages', function (): void {
+it('includes fathom analytics on docs pages in production', function (): void {
+    app()->detectEnvironment(fn (): string => 'production');
+
     test()->get('/docs')
         ->assertSuccessful()
-        ->assertSee('src="https://api.pirsch.io/pa.js"', false)
-        ->assertSee('id="pianjs"', false)
-        ->assertSee('data-code="hOO5Fej7RTPRYHpp7NYLPc2zdvBaqYEv"', false);
+        ->assertSee('src="https://cdn.usefathom.com/script.js"', false)
+        ->assertSee('data-site="CSCGEHNX"', false);
+});
+
+it('does not include analytics on docs pages outside production', function (): void {
+    app()->detectEnvironment(fn (): string => 'local');
+
+    test()->get('/docs')
+        ->assertSuccessful()
+        ->assertDontSee('src="https://cdn.usefathom.com/script.js"', false)
+        ->assertDontSee('data-site="CSCGEHNX"', false);
 });
 
 it('documents the new layout, text, and image components in the components reference', function (): void {

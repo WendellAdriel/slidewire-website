@@ -57,10 +57,20 @@ it('showcases the major slidewire features on the homepage deck', function (): v
         ->toContain('data-animation="typewriter"');
 });
 
-it('includes pirsch analytics on the homepage deck', function (): void {
+it('includes fathom analytics on the homepage deck in production', function (): void {
+    app()->detectEnvironment(fn (): string => 'production');
+
     test()->get('/')
         ->assertSuccessful()
-        ->assertSee('src="https://api.pirsch.io/pa.js"', false)
-        ->assertSee('id="pianjs"', false)
-        ->assertSee('data-code="hOO5Fej7RTPRYHpp7NYLPc2zdvBaqYEv"', false);
+        ->assertSee('src="https://cdn.usefathom.com/script.js"', false)
+        ->assertSee('data-site="CSCGEHNX"', false);
+});
+
+it('does not include analytics on the homepage deck outside production', function (): void {
+    app()->detectEnvironment(fn (): string => 'local');
+
+    test()->get('/')
+        ->assertSuccessful()
+        ->assertDontSee('src="https://cdn.usefathom.com/script.js"', false)
+        ->assertDontSee('data-site="CSCGEHNX"', false);
 });
