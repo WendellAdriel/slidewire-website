@@ -1,6 +1,7 @@
 # Changelog
 
 - [Introduction](#introduction)
+- [v1.3.2](#v132)
 - [v1.3.1](#v131)
 - [v1.3.0](#v130)
 - [v1.2.0](#v120)
@@ -15,6 +16,15 @@ This page tracks notable SlideWire releases so you can quickly review what chang
 SlideWire follows semantic versioning. Patch releases usually focus on targeted fixes and polish, while minor and major releases may introduce new features or broader changes.
 
 If you need the full release history, including pull requests and comparisons, you may also review the [GitHub releases page](https://github.com/WendellAdriel/slidewire/releases).
+
+<a name="v132"></a>
+## v1.3.2
+
+`v1.3.2` is a focused patch release that restores compatibility with Laravel's config caching when SlideWire uses DTO-based configuration.
+
+- Fixed DTO config serialization so `php artisan config:cache` can successfully cache SlideWire configuration values.
+
+For the complete comparison, see the [`v1.3.1...v1.3.2` release diff](https://github.com/WendellAdriel/slidewire/compare/v1.3.1...v1.3.2).
 
 <a name="v131"></a>
 ## v1.3.1
