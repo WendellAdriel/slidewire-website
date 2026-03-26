@@ -2,6 +2,7 @@
 
 - [Introduction](#introduction)
 - [Overview video](#overview-video)
+- [Showcase presentation](#showcase-presentation)
 - [Available guides](#available-guides)
 
 <a name="introduction"></a>
@@ -17,6 +18,13 @@ This video offers a quick overview of the package and walks through the core Sli
 https://www.youtube.com/watch?v=BazsWOLl-G4
 
 Thanks to [Eric L. Barnes](https://x.com/ericlbarnes) from [Laravel News](https://laravel-news.com/) for this amazing overview video.
+
+<a name="showcase-presentation"></a>
+## Showcase presentation
+
+If you want to see SlideWire in action, the showcase presentation brings together layouts, transitions, components, and storytelling patterns in a single deck.
+
+[Open the showcase presentation](/showcase)
 
 <a name="available-guides"></a>
 ## Available guides
