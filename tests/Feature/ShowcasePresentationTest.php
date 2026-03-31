@@ -18,6 +18,8 @@ it('renders the showcase route as a complete slidewire deck', function (): void 
         ->assertSee('SlideWire can carry the whole story.')
         ->assertSee('href="/docs"', false)
         ->assertSee('href="/"', false)
+        ->assertSee('href="https://github.com/WendellAdriel/slidewire-website/tree/main/resources/views/pages/slides/showcase" target="_blank" rel="noopener noreferrer"', false)
+        ->assertSee('Showcase source code')
         ->assertSee('href="https://github.com/WendellAdriel/slidewire"', false);
 });
 
@@ -51,5 +53,6 @@ it('exercises the major slidewire features and variations in the showcase deck',
         ->toContain('data-fragment-index="2"')
         ->toContain('slide-showcase-02-title-slides-0')
         ->toContain('slide-showcase-01-intro-0')
+        ->toContain('Showcase source code')
         ->toContain('Laravel and Livewire in one file');
 });

@@ -108,6 +108,9 @@
             <a href="/" class="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/8 px-6 py-3 text-sm font-semibold text-white/90 transition hover:border-white/25 hover:bg-white/12">
                 Back to home deck
             </a>
+            <a href="https://github.com/WendellAdriel/slidewire-website/tree/main/resources/views/pages/slides/showcase" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full border border-fuchsia-300/35 bg-fuchsia-300/10 px-6 py-3 text-sm font-semibold text-fuchsia-50 transition hover:border-fuchsia-200 hover:bg-fuchsia-300/20">
+                Showcase source code
+            </a>
             <a href="https://github.com/WendellAdriel/slidewire" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full border border-fuchsia-300/35 bg-fuchsia-300/10 px-6 py-3 text-sm font-semibold text-fuchsia-50 transition hover:border-fuchsia-200 hover:bg-fuchsia-300/20">
                 View on GitHub
             </a>

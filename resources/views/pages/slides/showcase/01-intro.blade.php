@@ -4,9 +4,9 @@
     transition-speed="slow"
     class="relative overflow-hidden"
 >
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(110,231,183,0.18),transparent_30%),radial-gradient(circle_at_top_right,rgba(34,211,238,0.16),transparent_28%),radial-gradient(circle_at_bottom,rgba(16,185,129,0.14),transparent_35%)]"></div>
-    <div class="absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:3.5rem_3.5rem]"></div>
-    <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/8 to-transparent"></div>
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(110,231,183,0.18),transparent_30%),radial-gradient(circle_at_top_right,rgba(34,211,238,0.16),transparent_28%),radial-gradient(circle_at_bottom,rgba(16,185,129,0.14),transparent_35%)]"></div>
+    <div class="pointer-events-none absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:3.5rem_3.5rem]"></div>
+    <div class="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/8 to-transparent"></div>
     <div class="mx-auto flex min-h-full w-full max-w-6xl flex-col justify-between gap-8">
         <x-slidewire::title-slide
             title="Every SlideWire primitive in one deck."
@@ -20,6 +20,17 @@
         />
 
         @include('pages.slides.showcase.partials.hero-panels')
+
+        <div class="flex justify-center">
+            <a
+                href="https://github.com/WendellAdriel/slidewire-website/tree/main/resources/views/pages/slides/showcase"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center rounded-full border border-fuchsia-300/35 bg-fuchsia-300/10 px-6 py-3 text-sm font-semibold text-fuchsia-50 transition hover:border-fuchsia-200 hover:bg-fuchsia-300/20"
+            >
+                Showcase source code
+            </a>
+        </div>
     </div>
 </x-slidewire::slide>
 
