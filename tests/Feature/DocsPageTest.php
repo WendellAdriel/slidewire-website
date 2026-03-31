@@ -106,6 +106,12 @@ it('renders the changelog page from markdown', function (): void {
         ->assertSuccessful()
         ->assertSee('Changelog')
         ->assertSee('SlideWire follows semantic versioning.')
+        ->assertSee('v1.4.1')
+        ->assertSee('default presentation styling for standalone Markdown slides')
+        ->assertSee('typography and list styling')
+        ->assertSee('v1.4.0')
+        ->assertSee('Markdown presentations')
+        ->assertSee('multi-file presentations')
         ->assertSee('v1.3.2')
         ->assertSee('config caching')
         ->assertSee('DTO config serialization')
@@ -170,7 +176,37 @@ it('updates the quickstart guide with first-party ui components', function (): v
         ->assertSee('title-slide')
         ->assertSee('panel')
         ->assertSee('agenda-slide')
-        ->assertSee('two-column-slide');
+        ->assertSee('two-column-slide')
+        ->assertSee('--md')
+        ->assertSee('--multi');
+});
+
+it('documents markdown and composed presentations in the workflow and routing guides', function (): void {
+    test()->get('/docs/building')
+        ->assertSuccessful()
+        ->assertSee('Markdown presentations')
+        ->assertSee('Composed presentations')
+        ->assertSee('highlight-theme: catppuccin-mocha')
+        ->assertSee('deck.blade.php')
+        ->assertSee('02-agenda.md');
+
+    test()->get('/docs/routing')
+        ->assertSuccessful()
+        ->assertSee('Blade files, Markdown decks, or composed presentation directories')
+        ->assertSee('{presentation}.md')
+        ->assertSee('{presentation}/')
+        ->assertDontSee('Standalone Markdown presentation files are not currently resolved');
+});
+
+it('documents markdown and multi-file scaffolding in the commands guide', function (): void {
+    test()->get('/docs/commands')
+        ->assertSuccessful()
+        ->assertSee('Markdown decks')
+        ->assertSee('Multi-file decks')
+        ->assertSee('{--md : Create a standalone Markdown deck}')
+        ->assertSee('{--multi : Create a multi-file deck}')
+        ->assertSee('deck.blade.php')
+        ->assertSee('mutually exclusive');
 });
 
 it('documents component-level animations in the presentation features guide', function (): void {

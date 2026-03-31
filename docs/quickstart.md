@@ -20,6 +20,8 @@ php artisan make:slidewire demo/product-launch --title="Product Launch"
 
 This creates a Blade file in your first configured presentation root.
 
+If you prefer a different starting point, you may scaffold a standalone Markdown deck with `--md` or a composed directory-based deck with `--multi`.
+
 <a name="build-your-slides"></a>
 ## Build your slides
 

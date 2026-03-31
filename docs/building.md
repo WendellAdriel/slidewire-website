@@ -2,22 +2,26 @@
 
 - [Presentation structure](#presentation-structure)
 - [Blade presentations](#blade-presentations)
+- [Markdown presentations](#markdown-presentations)
+- [Composed presentations](#composed-presentations)
 - [Livewire single-file presentations](#livewire-single-file-presentations)
 - [Deck defaults](#deck-defaults)
 - [Vertical stacks](#vertical-stacks)
 - [Render data](#render-data)
 
-SlideWire keeps the presentation workflow intentionally simple: one file, one deck, and as many slides as you need.
+SlideWire keeps the presentation workflow intentionally simple: start with one file when that is enough, then move to Markdown or composed directories when a deck grows.
 
 <a name="presentation-structure"></a>
 ## Presentation structure
 
-Each deck lives in a single Blade file and typically contains one `<x-slidewire::deck>` with one or more `<x-slidewire::slide>` elements.
+Each deck resolves from a presentation key and typically compiles into one `<x-slidewire::deck>` worth of slide metadata plus one or more slides.
 
-The default file convention is:
+The default conventions are:
 
 ```text
 resources/views/pages/slides/{presentation-key}.blade.php
+resources/views/pages/slides/{presentation-key}.md
+resources/views/pages/slides/{presentation-key}/
 ```
 
 <a name="blade-presentations"></a>
@@ -49,6 +53,60 @@ The simplest presentations can be plain Blade files:
 ```
 
 This format works well for static presentations and lightweight content that does not need component state.
+
+<a name="markdown-presentations"></a>
+## Markdown presentations
+
+If you prefer writing a content-first deck, you may author the presentation as a standalone Markdown file.
+
+````md
+---
+theme: black
+transition: fade
+highlight-theme: catppuccin-mocha
+---
+
+# Intro
+
+Welcome to SlideWire.
+
+<!-- slide -->
+
+---
+theme: white
+auto-slide: 3000
+---
+
+## Code
+
+```php
+echo 'Hello';
+```
+````
+
+SlideWire reads optional deck frontmatter from the top of the file, splits slides on `<!-- slide -->`, and lets each slide define its own frontmatter before the Markdown body.
+
+Markdown decks are a good fit for talks that are mostly prose, lists, and highlighted code samples.
+
+<a name="composed-presentations"></a>
+## Composed presentations
+
+When a presentation grows, you may split it into a directory of ordered slide parts.
+
+```text
+resources/views/pages/slides/team/kickoff/
+    deck.blade.php
+    01-intro.blade.php
+    02-agenda.md
+    03-demo.blade.php
+```
+
+`deck.blade.php` is optional and defines deck-level defaults. Ordered part files are compiled in lexicographic order, and each part may be a Blade file or a Markdown slide.
+
+Blade part files may still use normal Blade includes when you want to reuse fragments inside a slide or share repeated sections across multiple parts.
+
+> [!NOTE]
+> In a composed presentation, deck-level metadata comes from `deck.blade.php` when it exists. Individual parts contribute slide content and slide-level metadata.
 
 <a name="livewire-single-file-presentations"></a>
 ## Livewire single-file presentations

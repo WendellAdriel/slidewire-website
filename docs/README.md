@@ -8,7 +8,7 @@
 <a name="introduction"></a>
 ## Introduction
 
-SlideWire is a Laravel package for building presentation decks with Livewire. Presentations are built as Blade files, rendered as a full-page Livewire experience, and support navigation, themes, fragments, code highlighting, diagrams, vertical stacks, timed auto-slide flows, and first-party presentation UI components.
+SlideWire is a Laravel package for building presentation decks with Livewire. Presentations may be authored as Blade files, standalone Markdown decks, or composed from multiple slide files, then rendered as a full-page Livewire experience with navigation, themes, fragments, code highlighting, diagrams, vertical stacks, timed auto-slide flows, and first-party presentation UI components.
 
 <a name="overview-video"></a>
 ## Overview video

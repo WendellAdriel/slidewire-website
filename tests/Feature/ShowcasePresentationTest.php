@@ -8,7 +8,9 @@ it('renders the showcase route as a complete slidewire deck', function (): void 
     $response->assertSuccessful()
         ->assertSee('Every SlideWire primitive in one deck.')
         ->assertSee('Title slides set the tone fast.')
+        ->assertSee('Variants used in this showcase')
         ->assertSee('Four panel variants cover most presentation surfaces.')
+        ->assertSee('Laravel and Livewire in one file')
         ->assertSee('Agenda slides shape the same outline three different ways.')
         ->assertSee('One process, three presentation moods.')
         ->assertSee('Timeline slides cover orientations and item states.')
@@ -46,5 +48,8 @@ it('exercises the major slidewire features and variations in the showcase deck',
         ->toContain('data-orientation="vertical"')
         ->toContain('data-orientation="horizontal"')
         ->toContain('data-animation="typewriter"')
-        ->toContain('data-fragment-index="2"');
+        ->toContain('data-fragment-index="2"')
+        ->toContain('slide-showcase-02-title-slides-0')
+        ->toContain('slide-showcase-01-intro-0')
+        ->toContain('Laravel and Livewire in one file');
 });

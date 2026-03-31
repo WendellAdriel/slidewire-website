@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79d4721bccf14de1b03bca35d6b5d823",
+    "content-hash": "37f28ee3d886251930ddc87a8446c411",
     "packages": [
         {
             "name": "brick/math",
@@ -6157,16 +6157,16 @@
         },
         {
             "name": "wendelladriel/slidewire",
-            "version": "v1.3.2",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WendellAdriel/slidewire.git",
-                "reference": "cbb45823ee67b15eb66fbf668ad46f6ef318a6a5"
+                "reference": "e76d21fbbeff668f3e02e07e0b4d8653b68360ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WendellAdriel/slidewire/zipball/cbb45823ee67b15eb66fbf668ad46f6ef318a6a5",
-                "reference": "cbb45823ee67b15eb66fbf668ad46f6ef318a6a5",
+                "url": "https://api.github.com/repos/WendellAdriel/slidewire/zipball/e76d21fbbeff668f3e02e07e0b4d8653b68360ec",
+                "reference": "e76d21fbbeff668f3e02e07e0b4d8653b68360ec",
                 "shasum": ""
             },
             "require": {
@@ -6215,7 +6215,7 @@
             ],
             "support": {
                 "issues": "https://github.com/WendellAdriel/slidewire/issues",
-                "source": "https://github.com/WendellAdriel/slidewire/tree/v1.3.2"
+                "source": "https://github.com/WendellAdriel/slidewire/tree/v1.4.1"
             },
             "funding": [
                 {
@@ -6227,7 +6227,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-26T11:50:18+00:00"
+            "time": "2026-03-31T11:43:39+00:00"
         }
     ],
     "packages-dev": [

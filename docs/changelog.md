@@ -1,6 +1,8 @@
 # Changelog
 
 - [Introduction](#introduction)
+- [v1.4.1](#v141)
+- [v1.4.0](#v140)
 - [v1.3.2](#v132)
 - [v1.3.1](#v131)
 - [v1.3.0](#v130)
@@ -16,6 +18,26 @@ This page tracks notable SlideWire releases so you can quickly review what chang
 SlideWire follows semantic versioning. Patch releases usually focus on targeted fixes and polish, while minor and major releases may introduce new features or broader changes.
 
 If you need the full release history, including pull requests and comparisons, you may also review the [GitHub releases page](https://github.com/WendellAdriel/slidewire/releases).
+
+<a name="v141"></a>
+## v1.4.1
+
+`v1.4.1` is a focused patch release that improves the default presentation styling for standalone Markdown slides.
+
+- Fixed the default typography and list styling for Markdown-backed slides so headings, paragraphs, and bullets render more like Blade-authored slides.
+
+For the complete comparison, see the [`v1.4.0...v1.4.1` release diff](https://github.com/WendellAdriel/slidewire/compare/v1.4.0...v1.4.1).
+
+<a name="v140"></a>
+## v1.4.0
+
+`v1.4.0` is a feature release that gives SlideWire more flexible authoring workflows for teams that want to build decks outside a single Blade file.
+
+- Added support for standalone Markdown presentations with deck frontmatter, per-slide frontmatter, slide separators, and highlighted code blocks.
+- Added support for composed presentation directories so decks may combine ordered Blade and Markdown slide parts.
+- Updated `make:slidewire` so you may scaffold Markdown decks or multi-file presentations from the command line.
+
+For the complete comparison, see the [`v1.3.2...v1.4.0` release diff](https://github.com/WendellAdriel/slidewire/compare/v1.3.2...v1.4.0).
 
 <a name="v132"></a>
 ## v1.3.2

@@ -1,0 +1,12 @@
+<x-slidewire::deck
+    theme="aurora"
+    transition="slide"
+    transition-speed="default"
+    transition-duration="700"
+    auto-slide-pause-on-interaction="true"
+    show-controls="true"
+    show-progress="true"
+    show-fullscreen-button="true"
+    keyboard="true"
+    touch="true"
+></x-slidewire::deck>

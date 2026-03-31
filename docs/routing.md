@@ -6,7 +6,7 @@
 - [Presentation discovery](#presentation-discovery)
 - [Path normalization](#path-normalization)
 
-SlideWire uses a route macro and a presentation resolver so you can map clean URLs to Blade-based presentations.
+SlideWire uses a route macro and a presentation resolver so you can map clean URLs to Blade files, Markdown decks, or composed presentation directories.
 
 <a name="registering-presentations"></a>
 ## Registering presentations
@@ -44,12 +44,12 @@ Route::slidewire('/slides/q1', 'sales/q1-launch');
 Route::slidewire('/slides/retro', 'engineering/retro/sprint-42');
 ```
 
-These routes resolve to presentation files inside the configured presentation roots.
+These routes resolve to presentation sources inside the configured presentation roots.
 
 <a name="presentation-discovery"></a>
 ## Presentation discovery
 
-Presentation files are discovered from the directories listed in `config/slidewire.php`:
+Presentation sources are discovered from the directories listed in `config/slidewire.php`:
 
 ```php
 'presentation_roots' => [
@@ -57,13 +57,21 @@ Presentation files are discovered from the directories listed in `config/slidewi
 ],
 ```
 
-When SlideWire resolves a presentation, it looks for Blade files ending in `.blade.php`.
+When SlideWire resolves a presentation, it checks each root in this order:
 
-For example, the key `team/q1-kickoff` resolves to:
+1. `{presentation}.blade.php`
+2. `{presentation}.md`
+3. `{presentation}/`
+
+For example, the key `team/q1-kickoff` may resolve to any of these:
 
 ```text
 resources/views/pages/slides/team/q1-kickoff.blade.php
+resources/views/pages/slides/team/q1-kickoff.md
+resources/views/pages/slides/team/q1-kickoff/
 ```
+
+If both a Blade file and a Markdown file exist for the same key, SlideWire keeps the Blade file as the source of truth.
 
 <a name="path-normalization"></a>
 ## Path normalization
@@ -75,6 +83,3 @@ Presentation keys are normalized before lookup:
 - `..` segments are stripped
 
 This allows keys from different sources to resolve consistently while avoiding directory traversal issues.
-
-> [!WARNING]
-> SlideWire discovers Blade presentation files only. Standalone Markdown presentation files are not currently resolved by the path resolver.
