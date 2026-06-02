@@ -6157,16 +6157,16 @@
         },
         {
             "name": "wendelladriel/slidewire",
-            "version": "v1.4.1",
+            "version": "v1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WendellAdriel/slidewire.git",
-                "reference": "e76d21fbbeff668f3e02e07e0b4d8653b68360ec"
+                "reference": "5206323e8e9b982a872dd5e8d7e83b3e563912fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WendellAdriel/slidewire/zipball/e76d21fbbeff668f3e02e07e0b4d8653b68360ec",
-                "reference": "e76d21fbbeff668f3e02e07e0b4d8653b68360ec",
+                "url": "https://api.github.com/repos/WendellAdriel/slidewire/zipball/5206323e8e9b982a872dd5e8d7e83b3e563912fc",
+                "reference": "5206323e8e9b982a872dd5e8d7e83b3e563912fc",
                 "shasum": ""
             },
             "require": {
@@ -6215,7 +6215,7 @@
             ],
             "support": {
                 "issues": "https://github.com/WendellAdriel/slidewire/issues",
-                "source": "https://github.com/WendellAdriel/slidewire/tree/v1.4.1"
+                "source": "https://github.com/WendellAdriel/slidewire/tree/v1.4.2"
             },
             "funding": [
                 {
@@ -6227,7 +6227,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-03-31T11:43:39+00:00"
+            "time": "2026-06-02T15:28:25+00:00"
         }
     ],
     "packages-dev": [

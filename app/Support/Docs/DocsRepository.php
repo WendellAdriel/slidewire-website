@@ -21,7 +21,7 @@ use Throwable;
  */
 final readonly class DocsRepository
 {
-    public const string CURRENT_VERSION = 'v1.4.1';
+    public const string CURRENT_VERSION = 'v1.4.2';
 
     private string $docsPath;
 

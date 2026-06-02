@@ -1,6 +1,7 @@
 # Changelog
 
 - [Introduction](#introduction)
+- [v1.4.2](#v142)
 - [v1.4.1](#v141)
 - [v1.4.0](#v140)
 - [v1.3.2](#v132)
@@ -18,6 +19,15 @@ This page tracks notable SlideWire releases so you can quickly review what chang
 SlideWire follows semantic versioning. Patch releases usually focus on targeted fixes and polish, while minor and major releases may introduce new features or broader changes.
 
 If you need the full release history, including pull requests and comparisons, you may also review the [GitHub releases page](https://github.com/WendellAdriel/slidewire/releases).
+
+<a name="v142"></a>
+## v1.4.2
+
+`v1.4.2` is a focused patch release that keeps active slides aligned after repeated presentation navigation.
+
+- Fixed stale frame transition animations so moving backward and forward through slide, fade, zoom, and vertical transitions no longer leaves active slides visually offset.
+
+For the complete comparison, see the [`v1.4.1...v1.4.2` release diff](https://github.com/WendellAdriel/slidewire/compare/v1.4.1...v1.4.2).
 
 <a name="v141"></a>
 ## v1.4.1
