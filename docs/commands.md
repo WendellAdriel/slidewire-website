@@ -6,8 +6,9 @@
 - [Multi-file decks](#multi-file-decks)
 - [Interactive mode](#interactive-mode)
 - [Overwrite existing files](#overwrite-existing-files)
+- [`slidewire:remote`](#slidewireremote)
 
-SlideWire currently ships with a single scaffolding command for creating presentation files, standalone Markdown decks, and composed multi-file decks.
+SlideWire provides commands for scaffolding presentations and starting remote presenter sessions.
 
 <a name="make-slidewire"></a>
 ## `make:slidewire`
@@ -89,3 +90,29 @@ If the destination file or directory already exists, the command fails unless `-
 ```shell
 php artisan make:slidewire team/q1-kickoff --title="Q1 Kickoff" --force
 ```
+
+<a name="slidewireremote"></a>
+## `slidewire:remote`
+
+Use `slidewire:remote` to start a session where viewers follow the presenter's slide and fragment position:
+
+```shell
+php artisan slidewire:remote team/q1-kickoff --ttl=2h --poll=2s
+```
+
+The presentation must be registered with `Route::slidewire()` using its generated route name. The command prints a signed controller URL for the presenter and a separate viewer URL to share with the audience.
+
+Command signature:
+
+```text
+slidewire:remote
+    {presentation : The presentation key (e.g. pitch)}
+    {--ttl= : Session TTL using DSL format (e.g. 30m, 2h, 1d)}
+    {--poll= : Viewer poll interval (e.g. 500ms, 2s)}
+```
+
+- `presentation`: required presentation key, such as `team/q1-kickoff`, rather than the presentation URL.
+- `--ttl=`: session lifetime as a positive whole number with an `m`, `h`, or `d` suffix. Defaults to `RemoteConfig::ttl` (`2h`).
+- `--poll=`: viewer polling interval as a positive whole number with an `ms` or `s` suffix. Defaults to `RemoteConfig::pollInterval` (`2s`).
+
+Remote sessions require a persistent cache store with atomic lock support, shared by the command and web requests. See [Remote presenter control](./remote-control.md) for cache setup, viewer permissions, and session lifecycle.

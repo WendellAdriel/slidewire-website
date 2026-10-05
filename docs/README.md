@@ -36,5 +36,6 @@ If you want to see SlideWire in action, the showcase presentation brings togethe
 - [Presentation workflow](./building.md)
 - [Components reference](./components.md)
 - [Presentation features](./presentation-features.md)
+- [Remote presenter control](./remote-control.md)
 - [Configuration](./configuration.md)
 - [Commands](./commands.md)

@@ -1,6 +1,7 @@
 # Changelog
 
 - [Introduction](#introduction)
+- [v1.5.0](#v150)
 - [v1.4.2](#v142)
 - [v1.4.1](#v141)
 - [v1.4.0](#v140)
@@ -19,6 +20,19 @@ This page tracks notable SlideWire releases so you can quickly review what chang
 SlideWire follows semantic versioning. Patch releases usually focus on targeted fixes and polish, while minor and major releases may introduce new features or broader changes.
 
 If you need the full release history, including pull requests and comparisons, you may also review the [GitHub releases page](https://github.com/WendellAdriel/slidewire/releases).
+
+<a name="v150"></a>
+## v1.5.0
+
+`v1.5.0` adds remote presenter control so viewers may follow a presentation from their own browsers.
+
+- Added `slidewire:remote` to create sessions with a signed controller link and a separate viewer link.
+- Added cache-backed synchronization of slide and fragment positions through Livewire polling.
+- Added presenter controls to unlock viewer browsing, lock viewers back to the presenter, and end a session with confirmation.
+- Locked viewers hide navigation arrows while retaining fullscreen when enabled. Session exit restores independent browsing without losing revealed fragments.
+- Added `RemoteConfig` defaults for session lifetime, polling interval, viewer navigation, and cache store.
+
+See [Remote presenter control](./remote-control.md) for setup and usage. For the complete comparison, see the [`v1.4.2...v1.5.0` release diff](https://github.com/WendellAdriel/slidewire/compare/v1.4.2...v1.5.0).
 
 <a name="v142"></a>
 ## v1.4.2

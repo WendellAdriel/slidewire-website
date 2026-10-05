@@ -12,6 +12,7 @@ it('renders the docs index from docs readme', function (): void {
         ->assertSee('href="/docs/installation"', false)
         ->assertSee('href="/docs/quickstart"', false)
         ->assertSee('href="/docs/routing"', false)
+        ->assertSee('href="/docs/remote-control"', false)
         ->assertDontSee('<h2 id="introduction">Introduction</h2>', false)
         ->assertDontSee('href="#introduction"', false);
 });
@@ -57,6 +58,22 @@ it('rewrites internal markdown links to docs routes', function (): void {
         ->assertDontSee('href="./quickstart.md"', false);
 });
 
+it('documents the supported stack and upgrade steps for version 1.5.0', function (): void {
+    $content = test()->get('/docs/installation')
+        ->assertSuccessful()
+        ->assertSee('^12.0')
+        ->assertSee('^13.0')
+        ->assertSee('^4.2')
+        ->assertSee('Upgrading to 1.5.0')
+        ->assertSee('href="#upgrading-to-150"', false)
+        ->assertSee('id="upgrading-to-150"', false)
+        ->assertSee('href="/docs/remote-control"', false)
+        ->assertSee('overwrites your customizations')
+        ->getContent();
+
+    expect(html_entity_decode(strip_tags((string) $content)))->toContain('composer require wendelladriel/slidewire:"^1.5"');
+});
+
 it('returns 404 for unknown docs pages', function (): void {
     test()->get('/docs/not-real')->assertNotFound();
 });
@@ -66,6 +83,8 @@ it('keeps the docs route name stable', function (): void {
 });
 
 it('exposes branded docs chrome', function (): void {
+    expect(DocsRepository::CURRENT_VERSION)->toBe('v1.5.0');
+
     $content = test()->get('/docs')
         ->assertSuccessful()
         ->assertSee('data-docs-sidebar', false)
@@ -106,6 +125,10 @@ it('renders the changelog page from markdown', function (): void {
         ->assertSuccessful()
         ->assertSee('Changelog')
         ->assertSee('SlideWire follows semantic versioning.')
+        ->assertSee('v1.5.0')
+        ->assertSee('remote presenter control')
+        ->assertSee('href="/docs/remote-control"', false)
+        ->assertSee('https://github.com/WendellAdriel/slidewire/compare/v1.4.2...v1.5.0')
         ->assertSee('v1.4.2')
         ->assertSee('active slides aligned after repeated presentation navigation')
         ->assertSee('stale frame transition animations')
@@ -220,5 +243,63 @@ it('documents component-level animations in the presentation features guide', fu
         ->assertSee('slow')
         ->assertSee('zoom-in')
         ->assertSee('slide-up')
-        ->assertSee('typewriter');
+        ->assertSee('typewriter')
+        ->assertSee('href="/docs/remote-control"', false)
+        ->assertSee('locked viewers hide navigation arrows');
+});
+
+it('documents remote presenter setup and the session lifecycle', function (): void {
+    $content = test()->get('/docs/remote-control')
+        ->assertSuccessful()
+        ->assertSee('Remote presenter control')
+        ->assertSee('SlideWire 1.5.0')
+        ->assertSee('Starting a session')
+        ->assertSee('Viewer navigation')
+        ->assertSee('Session configuration')
+        ->assertSee('Ending a session')
+        ->assertSee('Troubleshooting')
+        ->assertSee('slidewire:remote')
+        ->assertSee('This setting applies to all viewers in the session.')
+        ->assertSee('Fullscreen remains available')
+        ->assertSee('They keep their current slide and revealed fragments.')
+        ->assertSee('atomic locks')
+        ->assertSee('Keep the controller URL private.')
+        ->assertSee('href="/docs/routing"', false)
+        ->assertSee('href="/docs/configuration"', false)
+        ->assertSee('href="#starting-a-session"', false)
+        ->assertSee('id="starting-a-session"', false)
+        ->getContent();
+
+    expect(strip_tags((string) $content))->toContain('php artisan slidewire:remote pitch --ttl=30m --poll=500ms');
+});
+
+it('links remote control between presentation features and configuration', function (): void {
+    $page = app(DocsRepository::class)->find('remote-control');
+
+    expect($page)->not->toBeNull()
+        ->and($page->previous['slug'])->toBe('presentation-features')
+        ->and($page->next['slug'])->toBe('configuration');
+});
+
+it('documents remote command options and configuration defaults', function (): void {
+    test()->get('/docs/commands')
+        ->assertSuccessful()
+        ->assertSee('slidewire:remote')
+        ->assertSee('{presentation : The presentation key (e.g. pitch)}')
+        ->assertSee('{--ttl= : Session TTL using DSL format (e.g. 30m, 2h, 1d)}')
+        ->assertSee('{--poll= : Viewer poll interval (e.g. 500ms, 2s)}')
+        ->assertSee('href="#slidewireremote"', false)
+        ->assertSee('id="slidewireremote"', false)
+        ->assertSee('href="/docs/remote-control"', false)
+        ->assertDontSee('single scaffolding command');
+
+    test()->get('/docs/configuration')
+        ->assertSuccessful()
+        ->assertSee('Remote sessions')
+        ->assertSee('RemoteConfig')
+        ->assertSee('pollInterval')
+        ->assertSee('viewerControls')
+        ->assertSee('cacheStore')
+        ->assertSee('atomic lock support')
+        ->assertSee('href="/docs/remote-control"', false);
 });

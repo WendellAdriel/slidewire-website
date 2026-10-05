@@ -2,6 +2,7 @@
 
 - [Requirements](#requirements)
 - [Install the package](#install-the-package)
+- [Upgrading to 1.5.0](#upgrading-to-150)
 - [Publish optional assets](#publish-optional-assets)
 - [Create your first presentation](#create-your-first-presentation)
 - [Register a route](#register-a-route)
@@ -14,8 +15,8 @@ SlideWire installs like a typical Laravel package. After requiring the package, 
 SlideWire currently requires the same core stack validated by the package itself:
 
 - PHP `^8.4`
-- Laravel `^12.0`
-- Livewire `^4.0`
+- Laravel `^12.0` or `^13.0`
+- Livewire `^4.2`
 - Tailwind CSS `^4.0`
 
 Code highlighting is powered by `phiki/phiki`, which is installed automatically as a package dependency.
@@ -28,6 +29,21 @@ composer require wendelladriel/slidewire
 ```
 
 SlideWire registers its service provider automatically, so no manual provider registration is needed.
+
+<a name="upgrading-to-150"></a>
+## Upgrading to 1.5.0
+
+You may update an existing installation with:
+
+```shell
+composer require wendelladriel/slidewire:"^1.5"
+```
+
+Existing presentations continue to work without a remote session. To use the new feature, see [Remote presenter control](./remote-control.md).
+
+If you previously published `config/slidewire.php`, you may add the `remote` configuration entry described in that guide. The defaults apply when the entry is absent.
+
+If you published the package views, compare your overrides in `resources/views/vendor/slidewire` with the updated package views and merge the remote session changes. Publishing with `--force` overwrites your customizations. Rebuild your frontend assets after updating.
 
 <a name="publish-optional-assets"></a>
 ## Publish optional assets

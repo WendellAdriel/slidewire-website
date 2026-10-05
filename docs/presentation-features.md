@@ -38,6 +38,8 @@ These options are controlled through deck-level settings or config defaults.
 
 Vertical controls are only shown when the compiled deck contains at least one vertical stack.
 
+During a remote session, locked viewers hide navigation arrows but retain fullscreen when enabled. The presenter may unlock browsing for all viewers or lock them back to the current position. See [Remote presenter control](./remote-control.md) for setup and session behavior.
+
 <a name="transitions"></a>
 ## Transitions
 

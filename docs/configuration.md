@@ -3,6 +3,7 @@
 - [Configuration file](#configuration-file)
 - [Presentation roots](#presentation-roots)
 - [Slide defaults](#slide-defaults)
+- [Remote sessions](#remote-sessions)
 - [Runtime precedence](#runtime-precedence)
 - [Themes](#themes)
 - [Highlighting](#highlighting)
@@ -19,6 +20,7 @@ The main sections are:
 
 - `presentation_roots`
 - `slides`
+- `remote`
 - `themes`
 - `fonts`
 
@@ -67,6 +69,30 @@ use WendellAdriel\SlideWire\Enums\SlideTransitionSpeed;
     ),
 ),
 ```
+
+<a name="remote-sessions"></a>
+## Remote sessions
+
+The `remote` section defines defaults for remote presenter sessions:
+
+```php
+use WendellAdriel\SlideWire\DTOs\RemoteConfig;
+
+'remote' => new RemoteConfig(
+    ttl: '2h',
+    pollInterval: '2s',
+    viewerControls: false,
+    cacheStore: null,
+),
+```
+
+`ttl` accepts positive whole numbers with an `m`, `h`, or `d` suffix. `pollInterval` accepts positive whole numbers with an `ms` or `s` suffix. The `slidewire:remote` command may override these values for a new session with `--ttl` and `--poll`.
+
+`viewerControls` determines whether viewers may browse freely when a session starts. The presenter may change this for all viewers using the session lock toggle.
+
+`cacheStore` selects a named Laravel cache store. When `null`, SlideWire uses the application's default store. Remote sessions need a persistent store with atomic lock support, accessible to both the Artisan command and web requests. Do not use the `array` store for sessions created from the command line.
+
+See [Remote presenter control](./remote-control.md) for the full session workflow and cache requirements.
 
 <a name="runtime-precedence"></a>
 ## Runtime precedence
